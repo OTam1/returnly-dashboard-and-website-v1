@@ -5,15 +5,19 @@
      <meta charset="utf-8">
      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
      <!-- Author -->
-     <meta name="author" content="Themes Industry">
+     <meta name="author" content="Return-ly">
      <!-- description -->
-     <meta name="description" content="MegaOne is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose studio and portfolio HTML5 template with 8 ready home page demos.">
+     <meta name="description" content="Return-ly">
      <!-- keywords -->
-     <meta name="keywords" content="Creative, modern, clean, bootstrap responsive, html5, css3, portfolio, blog, studio, templates, multipurpose, one page, corporate, start-up, studio, branding, designer, freelancer, carousel, parallax, photography, studio, masonry, grid, faq">
+     <meta name="keywords" content="Return-ly">
      <!-- Page Title -->
      <title>RETURN-LY</title>
     <!-- Favicon -->
     <link rel="icon" href="../landing-page-assetes/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../landing-page-assetes/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../landing-page-assetes/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../landing-page-assetes/img/favicon-16x16.png">
+    <link rel="manifest" href="../landing-page-assetes/img/site.webmanifest">
     <!-- Bundle -->
     <link rel="stylesheet" href="../landing-page-assetes/vendor/css/bundle.min.css">
     <!-- Plugin Css -->
