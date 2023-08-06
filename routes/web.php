@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	return view('landingpage');
 });
+Route::post('/joinus', [ContactController::class, 'joinUs'])->name('joinus');
+Route::post('/contactus', [ContactController::class, 'contactUs'])->name('contactus');
+
 
 Route::group(['middleware' => 'auth'], function () {
 

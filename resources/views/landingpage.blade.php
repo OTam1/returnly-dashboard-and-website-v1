@@ -76,11 +76,11 @@
                         </div>
 
                         <div class="col-3 text-right p-0">
-                            <div class="banner-icons">
+                            {{-- <div class="banner-icons">
                             <a href="#"><i class="lab la-facebook-f icons fb"></i></a>
                             <a href="#"><i class="lab la-twitter icons twt"></i></a>
                             <a href="#"><i class="lab la-instagram icons inst"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -116,11 +116,11 @@
             </nav>
 
             <div class="side-footer w-100">
-                <div class="banner-icons">
+                {{-- <div class="banner-icons">
                     <a href="#"><i class="lab la-facebook-f icons"></i></a>
                     <a href="#"><i class="lab la-twitter icons"></i></a>
                     <a href="#"><i class="lab la-instagram icons"></i></a>
-                </div>
+                </div> --}}
                 <p>&copy; 2023 RETURN-LY. Made With Love by Revival-Lab.</p>
             </div>
         </div>
@@ -317,10 +317,45 @@
         <div class="stats-text pl-3 pl-md-5">
             <div class="home-text text-black">
                 <h1 class="sub-heading">Let us make you happy with</h1>
-                <h1 class="main-heading mt-3 mb-4"><span class="text-yellow">Lorem ipsum</span> dolor sit amet, consectetur</h1>
-                <p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut
-                    aliq. Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <a href="#" class="btn btn-main pink-btn rounded-pill mt-3">Lorem ipsum</a>
+                <h1 class="main-heading mt-3 mb-4"><span class="text-yellow">Join our</span> Partner's Network</h1>
+                {{-- <p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut
+                    aliq. Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> --}}
+                    <div class="joinus-form-suc"></div>
+                    <form class="joinus-form" id="joinus-form">
+                        @csrf
+                        <div class="row mt-5">
+                            <div class="col-sm-12" id="result"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Company name*" required id="company_name" name="companyName">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="email" placeholder="Email Address*" required id="company_email" name="companyEmail">
+                                </div>
+                                <div class="form-group ">
+                                    <input class="form-control" type="phone" placeholder="Phone*" required id="company_phone" name="companyPhone">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group ">
+                                    <input class="form-control" type="text" placeholder="Industry*" required id="company_industry" name="companyIndustry">
+                                </div>
+                                <div class="form-group ">
+                                    <input class="form-control" type="text" placeholder="Country*" required id="company_country" name="companyCountry">
+                                </div>
+                                <div class="form-group ">
+                                    <input class="form-control" type="text" placeholder="City*" required id="company_city" name="companyCity">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn">
+                            <i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>
+                            <b>Send</b>
+                        </button>
+                    </form>
+                                    {{-- <a href="#" class="btn btn-main pink-btn rounded-pill mt-3">Lorem ipsum</a> --}}
             </div>
         </div>
     </div>
@@ -403,7 +438,7 @@
 
         <div class="row">
             <div class="col-12 col-md-9">
-                <div class="sponser-tags owl-carousel owl-theme">
+                {{-- <div class="sponser-tags owl-carousel owl-theme">
                     <div class="item brand-img d-flex justify-content-center">
                         <img src="../landing-page-assetes/img/brand.png" alt="brand1">
                     </div>
@@ -416,7 +451,7 @@
                     <div class="item brand-img d-flex justify-content-center">
                         <img src="../landing-page-assetes/img/brand.png" alt="brand4">
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -441,33 +476,34 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-7">
-                <form class="contact-form" id="contact-form-data">
+                <div class="contact-form-suc"></div>
+                <form class="contact-form" id="contact-form">
+                    @csrf
                     <div class="row mt-5">
                         <div class="col-sm-12" id="result"></div>
                     </div>
-                        <div class="row">
-                            <div class="col-12 col-md-5">
+                    <div class="row">
+                        <div class="col-12 col-md-5">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Your Name" required  id="candidate_name" name="userName">
+                                <input class="form-control" type="text" placeholder="Your Name" required id="candidate_name" name="userName">
                             </div>
-
                             <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email Address*" required  id="user_email" name="userEmail">
+                                <input class="form-control" type="email" placeholder="Email Address*" required id="user_email" name="userEmail">
                             </div>
-
                             <div class="form-group ">
                                 <input class="form-control" type="text" placeholder="Subject" id="user_subject" name="userSubject">
                             </div>
-                            </div>
-
-                            <div class="col-12 col-md-7">
-                                <div class="form-group ">
-                                    <textarea class="form-control" placeholder="Your Message" required rows="7" id="user_message" name="userMessage"></textarea>
-                                </div>
+                        </div>
+                        <div class="col-12 col-md-7">
+                            <div class="form-group ">
+                                <textarea class="form-control" placeholder="Your Message" required rows="7" id="user_message" name="userMessage"></textarea>
                             </div>
                         </div>
-
-                    <button type="button" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn"><i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i> <b>Send Message</b></button>
+                    </div>
+                    <button type="submit" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn">
+                        <i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>
+                        <b>Send Message</b>
+                    </button>
                 </form>
             </div>
 
@@ -479,11 +515,13 @@
                 </div>
                 <div class="address d-flex mb-4">
                     <i class="fas fa-phone-volume address-icon mr-3"></i>
-                    <p>+1 631 12345678<span class="ml-3">  +1 631 12345678 </span> </p>
+                    <p>+11 22 55592
+                        {{-- <span class="ml-3">  +1 631 12345678 </span>4 --}}
+                     </p>
                 </div>
                 <div class="address d-flex mr-3">
                     <i class="fas fa-paper-plane address-icon mr-3"></i>
-                    <p>email@website.com</p>
+                    <p>info@return-ly.com</p>
                 </div>
                 </div>
 
@@ -501,14 +539,14 @@
 <!--        FOOTER SECTION ROW-->
         <div class="row footer">
             <div class="col-12 col-md-5">
-                <ul class="footer_ul mb-50">
+                {{-- <ul class="footer_ul mb-50">
                     <li class="footer_list"><i class="lab la-facebook-f fb"></i></li>
                     <li class="footer_list"><i class="lab la-twitter twt"></i></li>
                     <li class="footer_list"><i class="lab la-google-plus gogle"></i></li>
                     <li class="footer_list"><i class="lab la-linkedin-in link"></i></li>
                     <li class="footer_list"><i class="lab la-instagram inst"></i></li>
                     <li class="footer_list"><i class="las la-envelope gmail"></i></li>
-                </ul>
+                </ul> --}}
                 <p class="info footer_text ml-3"><i class="far fa-copyright"></i>2023 RETURN-LY. Made With Love by Revival-Lab.</p>
 
             </div>
@@ -516,8 +554,6 @@
 
     </div>
 </section>
-
-
 
 
 <!-- JavaScript -->
@@ -536,6 +572,49 @@
 <script src="../landing-page-assetes/js/tilt.jquery.js"></script>
 <script src="../landing-page-assetes/vendor/js/contact_us.js"></script>
 <script src="../landing-page-assetes/js/script.js"></script>
+<script>
+    $('#joinus-form').submit(function(event) {
+    event.preventDefault();
+
+    // Send the form data using AJAX
+    $.ajax({
+        url: '{{ route('joinus') }}',
+        method: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(response) {
+            // Display the success message
+            $('.joinus-form-suc').text(response.message).addClass('alert-success').show();
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
+</script>
+<script>
+    $('#contact-form').submit(function(event) {
+    event.preventDefault();
+
+    // Send the form data using AJAX
+    $.ajax({
+        url: '{{ route('contactus') }}',
+        method: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(response) {
+            // Display the success message
+            $('.contact-form-suc').text(response.message).addClass('alert-success').show();
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
+</script>
+
 
 </body>
 </html>
