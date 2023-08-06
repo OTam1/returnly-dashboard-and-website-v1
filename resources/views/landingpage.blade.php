@@ -48,7 +48,7 @@
     <nav id="my-nav1" class="navbar navbar-expand-lg navbar-light rounded-bar transparent-bar">
 
         <div class="logo small-screen">
-            <a href="#home" class="scroll"><img src="../landing-page-assetes/img/Return-ly-logo2.png" alt="Logo Img"></a>
+            <a href="#home" class="scroll"><img src="../landing-page-assetes/img/Return-ly-logo.png" alt="Logo Img"></a>
         </div>
 
         <div class="container bg-trans-color">
@@ -322,7 +322,7 @@
 <section id="design" class="design">
 
     <div class="col-lg-6 offset-lg-4 col-md-6 offset-md-4 col-sm-12 text-left p-0">
-        <div class="stats-text pl-3 pl-md-5">
+        <div class="stats-text pl-3 pr-3 pl-md-5">
             <div class="home-text text-black">
                 <h1 class="sub-heading">Let us make you happy with</h1>
                 <h1 class="main-heading mt-3 mb-4"><span class="text-yellow">Join our</span> Partner's Network</h1>
@@ -334,6 +334,8 @@
                         <div class="row mt-5">
                             <div class="col-sm-12" id="result"></div>
                         </div>
+                        <div class="container">
+
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -358,6 +360,7 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                         <button type="submit" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn">
                             <i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>
                             <b>Send</b>
@@ -368,7 +371,7 @@
         </div>
     </div>
 
-    <svg class="right-square small-view" viewBox="0 0 312 600" xmlns="http://www.w3.org/2000/svg">
+    <svg class="right-square small-view" viewBox="0 0 312 600" xmlns="http://www.w3.org/2000/svg" style="z-index: -1;">
         <rect  x = "0" y = "32" width = "1616" height = "1616" rx="48" ry="48" fill="#422B72" transform = "rotate(-45 310 100)"/>
     </svg>
 

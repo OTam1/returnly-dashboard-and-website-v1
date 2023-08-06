@@ -2046,7 +2046,7 @@ span{
     }
     .plant-home {
         position: unset;
-        width: 119%;
+        width: 85%;
         margin-top: -80%;
         margin-left: 100%;
     }
@@ -2087,8 +2087,11 @@ span{
     }
     .logo {
 
-        max-width: 65px;
-    }
+max-width: 60%;
+
+z-index: 23;
+
+}
 
     .side-menu {
         width: 100%;
