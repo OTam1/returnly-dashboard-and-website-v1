@@ -17,7 +17,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../landing-page-assetes/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../landing-page-assetes/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../landing-page-assetes/img/favicon-16x16.png">
-    <link rel="manifest" href="../landing-page-assetes/img/site.webmanifest">
     <!-- Bundle -->
     <link rel="stylesheet" href="../landing-page-assetes/vendor/css/bundle.min.css">
     <!-- Plugin Css -->
@@ -574,7 +573,6 @@
 <script src="../landing-page-assetes/vendor/js/owl.carousel.min.js"></script>
 <script src="../landing-page-assetes/js/mediaelement-and-player.min.js"></script>
 <script src="../landing-page-assetes/js/tilt.jquery.js"></script>
-<script src="../landing-page-assetes/vendor/js/contact_us.js"></script>
 <script src="../landing-page-assetes/js/script.js"></script>
 <script>
     $('#joinus-form').submit(function(event) {
