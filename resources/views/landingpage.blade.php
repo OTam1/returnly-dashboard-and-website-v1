@@ -141,7 +141,12 @@
                         <h6 class="sub-heading mb-2">Have a lost item?</h6>
                         <h1 class="main-heading mb-0">It's not lost yet</h1>
                         <h4 class="heading mb-3">We'll find it</h4>
-                        <a href="#blog" class="btn btn-slider pink-btn rounded-pill">CLAIM NOW</a>
+                        @guest
+                        <a href="register" class="btn btn-slider pink-btn rounded-pill">CLAIM NOW</a>
+                        @endguest
+                        @auth
+                        <a href="dashboard" class="btn btn-slider pink-btn rounded-pill">CLAIM NOW</a>
+                        @endauth
                     </div>
                 </div>
             </div>

@@ -22,11 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('landingpage');
-});
-Route::post('/joinus', [ContactController::class, 'joinUs'])->name('joinus');
-Route::post('/contactus', [ContactController::class, 'contactUs'])->name('contactus');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -93,3 +88,8 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/login', function () {
     return view('session/login-session');
 })->name('login');
+Route::get('/', function () {
+	return view('landingpage');
+});
+Route::post('/joinus', [ContactController::class, 'joinUs'])->name('joinus');
+Route::post('/contactus', [ContactController::class, 'contactUs'])->name('contactus');	
