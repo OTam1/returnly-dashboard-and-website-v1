@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="row">
+  {{-- <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -614,11 +614,103 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Item name</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Wallet">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Color</label>
+          <input type="text" placeholder="Black" class="form-control"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">City</label>            
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option disabled selected>Select an option</option>
+              <option>Dammam</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Place</label>            
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option disabled selected>Select an option</option>
+              <option>King Fahd International Airport</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Category</label>            
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option disabled selected>Select an option</option>
+              <option>Pocket Items</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Sub-Category</label>            
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option disabled selected>Select an option</option>
+              <option>Wallets</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+              <option>Lorem ipsum</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="example-date-input" class="form-control-label">Date</label>
+          <input class="form-control" type="date" value="2018-11-23" id="example-date-input" onfocus="focused(this)" onfocusout="defocused(this)">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="example-time-input" class="form-control-label">Time</label>
+          <input class="form-control" type="time" value="10:30:00" id="example-time-input" onfocus="focused(this)" onfocusout="defocused(this)">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg w-100">Submit</button>
+  </form>
+  
 @endsection
 @push('dashboard')
-  <script>
+  {{-- <script>
     window.onload = function() {
       var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -789,6 +881,6 @@
         },
       });
     }
-  </script>
+  </script> --}}
 @endpush
 

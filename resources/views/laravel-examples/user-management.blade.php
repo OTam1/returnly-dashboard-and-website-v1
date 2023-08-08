@@ -18,9 +18,9 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Users</h5>
+                            <h5 class="mb-0">All Items</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        {{-- <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a> --}}
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -35,16 +35,22 @@
                                         Photo
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Name
+                                        Item
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Email
+                                        Category
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        role
+                                        Sub-Category
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Address
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Creation Date
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
@@ -58,24 +64,30 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                            <img src="../assets/img/car_key.webp" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        <p class="text-xs font-weight-bold mb-0">Car key</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">Pocket Items</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        <p class="text-xs font-weight-bold mb-0">Keys</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        <p class="text-xs font-weight-bold mb-0">Khobar, Prince Turkey str</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <span class="text-secondary text-xs font-weight-bold">16/06/23</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Pending</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                            <i class="fas fa-eye text-secondary"></i>
                                         </a>
                                         <span>
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>
@@ -88,24 +100,30 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="/assets/img/team-1.jpg" class="avatar avatar-sm me-3">
+                                            <img src="/assets/img/wallet.jpg" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Creator</p>
+                                        <p class="text-xs font-weight-bold mb-0">Black Wallet</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">creator@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">Pocket Items</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Creator</p>
+                                        <p class="text-xs font-weight-bold mb-0">Wallets</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">05/05/20</span>
+                                        <p class="text-xs font-weight-bold mb-0">Dammam, West Avenue Mall</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <span class="text-secondary text-xs font-weight-bold">05/05/22</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Pending</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                            <i class="fas fa-eye text-secondary"></i>
                                         </a>
                                         <span>
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>
@@ -118,24 +136,30 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="/assets/img/team-3.jpg" class="avatar avatar-sm me-3">
+                                            <img src="/assets/img/iphone13_black.jpg" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Member</p>
+                                        <p class="text-xs font-weight-bold mb-0">Iphone 13 Pro max (Black)</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">member@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">Electornics</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Member</p>
+                                        <p class="text-xs font-weight-bold mb-0">Phones</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">23/06/20</span>
+                                        <p class="text-xs font-weight-bold mb-0">Dhahran, Mall of Dhahran</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <span class="text-secondary text-xs font-weight-bold">08/08/21</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Completed</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                            <i class="fas fa-eye text-secondary"></i>
                                         </a>
                                         <span>
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>
@@ -148,24 +172,30 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="/assets/img/team-4.jpg" class="avatar avatar-sm me-3">
+                                            <img src="/assets/img/airpods_pro.webp" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Peterson</p>
+                                        <p class="text-xs font-weight-bold mb-0">Airpods Pro</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">peterson@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">Electronics</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Member</p>
+                                        <p class="text-xs font-weight-bold mb-0">Earphone</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">26/10/17</span>
+                                        <p class="text-xs font-weight-bold mb-0">Khobar, Hilton Garden Inn</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <span class="text-secondary text-xs font-weight-bold">07/03/21</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Cancelled</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                            <i class="fas fa-eye text-secondary"></i>
                                         </a>
                                         <span>
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>
@@ -178,24 +208,30 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="/assets/img/marie.jpg" class="avatar avatar-sm me-3">
+                                            <img src="/assets/img/orange_bag.jpg" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Marie</p>
+                                        <p class="text-xs font-weight-bold mb-0">Orange luggage bag</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">marie@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">luggage</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Creator</p>
+                                        <p class="text-xs font-weight-bold mb-0">luggage bag</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Khobar, Prince Turkey str</p>
                                     </td>
                                     <td class="text-center">
                                         <span class="text-secondary text-xs font-weight-bold">23/01/21</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <p class="text-xs font-weight-bold mb-0">Completed</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                            <i class="fas fa-eye text-secondary"></i>
                                         </a>
                                         <span>
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>

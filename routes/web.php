@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('rtl');
 	})->name('rtl');
 
-	Route::get('user-management', function () {
+	Route::get('item-requests', function () {
 		return view('laravel-examples/user-management');
 	})->name('user-management');
 
