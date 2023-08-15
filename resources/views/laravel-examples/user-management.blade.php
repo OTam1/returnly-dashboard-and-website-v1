@@ -38,6 +38,9 @@
                                         Item
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Color
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Category
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -58,6 +61,49 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($items as $item)
+                                    <tr>
+                                        <td class="ps-4">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $item->id }}</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <img src="{{ asset('storage/' . $item->image) }}" class="avatar avatar-sm me-3">
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $item->item_name }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $item->color }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{$item->category}}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{$item->sub_category}}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{$item->place}}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{$item->date}}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{$item->status}}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View Request">
+                                                <i class="fas fa-eye text-secondary"></i>
+                                            </a>
+                                            {{-- <span>
+                                                <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            </span> --}}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                            </tbody>
+                            {{-- <tbody>
                                 <tr>
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0">1</p>
@@ -238,7 +284,7 @@
                                         </span>
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>
                 </div>

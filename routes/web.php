@@ -10,6 +10,8 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Models\Item;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'auth'], function () {
+
+
+	//actions to controller
+	Route::post('/submit', [ItemController::class, 'create'])->name('items.create');
 
     // Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard', function () {
@@ -44,9 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('rtl');
 
 	Route::get('item-requests', function () {
-		return view('laravel-examples/user-management');
+		$userItems = Item::where('user_id', Auth::user()->id)->get();
+		return view('laravel-examples/user-management', ['items' => $userItems]);
 	})->name('user-management');
-
+	
 	Route::get('tables', function () {
 		return view('tables');
 	})->name('tables');

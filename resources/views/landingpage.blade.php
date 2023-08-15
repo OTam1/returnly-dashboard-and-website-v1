@@ -397,9 +397,6 @@
                                 it was returned to me! they even
                                 shipped it all the way to Jeddah.</p>
                         </div>
-                        <div class="testimonial-img mt-2">
-                            <img src="../landing-page-assetes/img/testminial1.jpg" alt="student img">
-                        </div>
                         <div class="testimonial-tittle mt-3 mb-3">
                             <h3 class="mb-0">Sara Williams</h3>
                         </div>
@@ -417,9 +414,6 @@
                                 Seasons hotel and guess what? They
                                 found it and brought it back to me</p>
                         </div>
-                        <div class="testimonial-img mt-2">
-                            <img src="../landing-page-assetes/img/testminial1.jpg" alt="student img">
-                        </div>
                         <div class="testimonial-tittle mt-3 mb-3">
                             <h3 class="mb-0">Sara Williams</h3>
                         </div>
@@ -434,9 +428,6 @@
                             <p class="text-black sub-heading">Lorem ipsum dolor sit amet, consectetur adipi elit, sed do smod tempor incididunt ut
                                 labore et dolore magna sed do smod tempor incididunt ut
                                 labore et aten aliqua. Ut enim veniam,  velit esse cillum</p>
-                        </div>
-                        <div class="testimonial-img mt-2">
-                            <img src="../landing-page-assetes/img/testminial1.jpg" alt="student img">
                         </div>
                         <div class="testimonial-tittle mt-3 mb-3">
                             <h3 class="mb-0">Sara Williams</h3>

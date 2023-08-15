@@ -616,18 +616,33 @@
     </div>
   </div> --}}
 
-  <form>
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
+
+
+  <form action="{{ route('items.create') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <input name="user_id" value="{{Auth::user()->id}}" hidden/>
+    <input name="city_id" value="1" hidden/>
+    <input name="place_id" value="1" hidden/>
+    <input name="category_id" value="1" hidden/>
+    <input name="sub_category_id" value="1" hidden/>
+    <input name="status" value="Pending" hidden/>
+
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleFormControlInput1">Item name</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Wallet">
+          <input name="item_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Wallet" required>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleFormControlInput1">Color</label>
-          <input type="text" placeholder="Black" class="form-control"/>
+          <input name="color" type="text" placeholder="Black" class="form-control" required/>
         </div>
       </div>
     </div>
@@ -635,7 +650,7 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">City</label>            
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="city" class="form-control" id="exampleFormControlSelect1" required>
               <option disabled selected>Select an option</option>
               <option>Dammam</option>
               <option>Lorem ipsum</option>
@@ -643,12 +658,15 @@
               <option>Lorem ipsum</option>
               <option>Lorem ipsum</option>
             </select>
+            @error('city')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Place</label>            
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="place" class="form-control" id="exampleFormControlSelect1" required>
               <option disabled selected>Select an option</option>
               <option>King Fahd International Airport</option>
               <option>Lorem ipsum</option>
@@ -656,6 +674,9 @@
               <option>Lorem ipsum</option>
               <option>Lorem ipsum</option>
             </select>
+            @error('place')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
       </div>
     </div>
@@ -663,7 +684,7 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Category</label>            
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="category" class="form-control" id="exampleFormControlSelect1" required>
               <option disabled selected>Select an option</option>
               <option>Pocket Items</option>
               <option>Lorem ipsum</option>
@@ -671,12 +692,15 @@
               <option>Lorem ipsum</option>
               <option>Lorem ipsum</option>
             </select>
+            @error('category')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Sub-Category</label>            
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="sub_category" class="form-control" id="exampleFormControlSelect1" required>
               <option disabled selected>Select an option</option>
               <option>Wallets</option>
               <option>Lorem ipsum</option>
@@ -684,6 +708,9 @@
               <option>Lorem ipsum</option>
               <option>Lorem ipsum</option>
             </select>
+            @error('sub_category')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
       </div>
     </div>
@@ -691,21 +718,25 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="example-date-input" class="form-control-label">Date</label>
-          <input class="form-control" type="date" value="2018-11-23" id="example-date-input" onfocus="focused(this)" onfocusout="defocused(this)">
+          <input name="date" class="form-control" type="date" value="" id="example-date-input" onfocus="focused(this)" onfocusout="defocused(this)" required>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="example-time-input" class="form-control-label">Time</label>
-          <input class="form-control" type="time" value="10:30:00" id="example-time-input" onfocus="focused(this)" onfocusout="defocused(this)">
+          <input name="time" class="form-control" type="time" value="" id="example-time-input" onfocus="focused(this)" onfocusout="defocused(this)" required>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false"></textarea>
+      <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false" required></textarea>
     </div>
-    <button type="button" class="btn btn-primary btn-lg w-100">Submit</button>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+  </div>  
+    <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
   </form>
   
 @endsection
