@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard', function () {
-		return view('dashboard');
+		return view('user.dashboard');
 	})->name('dashboard');
 
 	Route::get('billing', function () {
@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
     Route::get('/login', function () {
-		return view('dashboard');
+		return view('user.dashboard');
 	})->name('sign-up');
 });
 

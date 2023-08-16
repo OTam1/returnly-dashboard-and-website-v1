@@ -2,7 +2,11 @@
 
 @section('content')
 
-<form >
+<form>
+    <label for="exampleFormControlInput1">Item image:</label>
+    <div class="centered-image-container" style="text-align: center;">
+        <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="30%">
+    </div>
       @if ($item->status == "Waiting for verification")
       <div class="progress-wrapper">
         <div class="progress-info">
@@ -146,5 +150,4 @@
       <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false" disabled>{{$item->description}}</textarea>
     </div>
   </form>
-  
 @endsection
