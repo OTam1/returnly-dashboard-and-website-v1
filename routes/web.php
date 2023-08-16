@@ -51,8 +51,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('item-requests', function () {
 		$userItems = Item::where('user_id', Auth::user()->id)->get();
-		return view('laravel-examples/user-management', ['items' => $userItems]);
+		return view('item.list', ['items' => $userItems]);
 	})->name('user-management');
+	
+	Route::get('item-requests/{item}', function ($item) {
+		$item = Item::findOrFail($item); // Retrieve the item by its ID
+		return view('item.show', ['item' => $item]);
+	})->name('items.show');
+	
 	
 	Route::get('tables', function () {
 		return view('tables');
