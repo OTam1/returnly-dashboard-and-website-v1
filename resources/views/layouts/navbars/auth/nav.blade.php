@@ -19,12 +19,27 @@
             </div>
             </div> --}}
             <ul class="navbar-nav  justify-content-end">
+            @if(auth()->user()->role_id === 1) <!--  role_id 1 represents administrators -->
+            <li class="nav-item d-flex align-items-center ps-3 pe-3">
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>                
+                <a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-body font-weight-bold px-0">
+                    <i class="fa fa-user me-sm-1"></i>
+                    <span class="d-sm-inline">Sign Out</span>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
             <li class="nav-item d-flex align-items-center ps-3 pe-3">
                 <a href="{{ url('/logout')}}" class="nav-link text-body font-weight-bold px-0">
                     <i class="fa fa-user me-sm-1"></i>
                     <span class="d-sm-inline">Sign Out</span>
                 </a>
             </li>
+            @endif
+
+            @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
             <li class="nav-item dropdown ps-2 pe-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
@@ -98,11 +113,15 @@
                 </li>
                 </ul>
             </li>
+            @endif
+
+            @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
             <li class="nav-item px-3 d-flex align-items-center">
                 <a href="/user-profile" class="nav-link text-body p-0">
                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                 </a>
             </li>
+            @endif
             <li class="nav-item d-xl-none ps-3 pe-3 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
