@@ -11,7 +11,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AdminController;
+
 use App\Models\Item;
+use App\Models\User; 
 
 /*
 |--------------------------------------------------------------------------
@@ -23,23 +26,58 @@ use App\Models\Item;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//admin auth routes
 
+Route::middleware(['role:1'])->prefix('admin')->group(function () {
 
-
-Route::group(['middleware' => 'auth'], function () {
-
-
-	//actions to controller
-	Route::post('/submit', [ItemController::class, 'create'])->name('items.create');
-
-    // Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard', function () {
-		return view('user.dashboard');
-	})->name('dashboard');
+		//items count
+		$totalItems = Item::count(); // Count total items
+		$todayItemsCount = Item::whereDate('created_at', now())->count(); // Count items added today
+		$todayItemsActionedCount = Item::whereDate('updated_at', now())->count(); // Count items added today
+		$pendingCount = Item::where('status', 'Pending')->count(); // Count items with status "Pending"
+		$waitingCount = Item::where('status', 'Waiting for payment')->count(); // Count items with status "Waiting for payment"
+		$deliveredCount = Item::where('status', 'Delivered')->count(); // Count items with status "Delivered"
+		$cancelledCount = Item::where('status', 'Cancelled')->count(); // Count items with status "Cancelled"
+	
+		//usercount
+		$totalUsers = User::where('role_id', 3)->count(); // Count total users with role_id = 3
+		$todayUsersCount = User::where('role_id', 3)
+			->whereDate('created_at', now())
+			->count(); // Count users added today with role_id = 3
+		$todayUsersloginCount = User::where('role_id', 3)
+		->whereDate('updated_at', now())
+		->count(); // Count users added today with role_id = 3
+
+		return view('admin.dashboard', [
+			'totalItems' => $totalItems,
+			'todayItemsCount' => $todayItemsCount,
+			'totalUsers' => $totalUsers,
+			'todayUsersCount' => $todayUsersCount,
+			'todayUsersloginCount' => $todayUsersloginCount,
+			'todayItemsActionedCount' =>$todayItemsActionedCount,	
+			'pendingCount' => $pendingCount,
+			'waitingCount' => $waitingCount,
+			'deliveredCount' => $deliveredCount,
+			'cancelledCount' => $cancelledCount,]);})->name('admin.dashboard');
+
+	Route::get('/user-profile', [InfoUserController::class, 'admincreate']);
+	Route::post('/user-profile', [InfoUserController::class, 'adminstore']);		
+	Route::post('admin/logout',[AdminController::class, 'logout'])->name('admin.logout');
 
 	Route::get('billing', function () {
 		return view('billing');
 	})->name('billing');
+});
+
+//user auth routes
+Route::middleware(['role:3'])->group(function () {
+
+	Route::post('/submit', [ItemController::class, 'create'])->name('items.create');
+
+	Route::get('dashboard', function () {
+		return view('user.dashboard');
+	})->name('dashboard');
 
 	Route::get('profile', function () {
 		return view('profile');
@@ -87,6 +125,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::group(['middleware' => 'guest'], function () {
+	//user dashboard
     Route::get('/register', [RegisterController::class, 'create']);
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/login', [SessionsController::class, 'create']);
@@ -96,8 +135,12 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 
-});
+	//admin dashboard
+	Route::get('admin/login',  [AdminController::class, 'showLoginForm'])->name('admin.login');
+	Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
 
+});
+//web page
 Route::get('/login', function () {
     return view('session/login-session');
 })->name('login');
