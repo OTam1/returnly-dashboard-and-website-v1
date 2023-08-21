@@ -88,7 +88,13 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $user->created_at }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $user->status }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                @if($user->status == 0)
+                                                <span class="badge badge-sm badge-secondary">Inactive</span>
+                                                @elseif ($user->status == 1)
+                                                <span class="badge badge-sm badge-success">Active</span>
+                                                @endif        
+                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.EditStatus', ['id' => $user->id]) }}" class="mx-3"
