@@ -18,7 +18,7 @@ class PlaceController extends Controller
 
     public function form()
     {
-        $cities = City::all(); // Eager load the 'user' relationship
+        $cities = City::where('status',1)->get(); // Eager load the 'user' relationship
         
         return view('admin.add-place',['cities' => $cities]);
     }
