@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
     }
     public function form()
     {
-        $sub_categories = Category::all(); // Eager load the 'user' relationship
+        $sub_categories = Category::where('status', 1)->get(); // Eager load the 'user' relationship
         
         return view('admin.add-sub_categories',['sub_categories' => $sub_categories]);
     }

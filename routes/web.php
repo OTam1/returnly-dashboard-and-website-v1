@@ -66,8 +66,16 @@ Route::middleware(['role:1'])->prefix('admin')->group(function () {
 
 	//users
 	Route::get('/administrators', [AdminUsersController::class, 'administrators'])->name('admin.administrators');
+	Route::get('/administrators-add', [AdminUsersController::class, 'AddAdministratorsForm'])->name('admin.AddAdministratorsForm');
+	Route::post('/administrators', [AdminUsersController::class, 'AddAdministrators'])->name('admin.AddAdministrators');
+
 	Route::get('/users', [AdminUsersController::class, 'users'])->name('admin.users');
+	
 	Route::get('/corprators', [AdminUsersController::class, 'corprators'])->name('admin.corprators');
+	Route::get('/corprators-add', [AdminUsersController::class, 'AddCorpratorsForm'])->name('admin.AddCorpratorsForm');
+	Route::post('/corprators', [AdminUsersController::class, 'AddCorprators'])->name('admin.AddCorprators');
+	Route::get('/get-places',[AdminUsersController::class, 'getPlaces'])->name('admin.getPlaces');
+
 	Route::get('/disableuser/{id}/edit', [AdminUsersController::class, 'EditStatus'])->name('admin.EditStatus');
 
 	//items
