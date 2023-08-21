@@ -80,7 +80,13 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $place->created_at }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $place->status }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                @if($place->status == 0)
+                                                <span class="badge badge-sm badge-secondary">Inactive</span>
+                                                @elseif ($place->status == 1)
+                                                <span class="badge badge-sm badge-success">Active</span>
+                                                @endif
+                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('places.editStatus', ['id' => $place->id]) }}" class="mx-3"

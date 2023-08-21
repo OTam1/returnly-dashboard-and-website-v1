@@ -74,7 +74,13 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $category->created_at }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $category->status }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                @if($category->status == 0)
+                                                <span class="badge badge-sm badge-secondary">Inactive</span>
+                                                @elseif ($category->status == 1)
+                                                <span class="badge badge-sm badge-success">Active</span>
+                                                @endif        
+                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('categories.editStatus', ['id' => $category->id]) }}" class="mx-3"

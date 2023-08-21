@@ -74,7 +74,13 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $city->created_at }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $city->status }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                @if($city->status == 0)
+                                                <span class="badge badge-sm badge-secondary">Inactive</span>
+                                                @elseif ($city->status == 1)
+                                                <span class="badge badge-sm badge-success">Active</span>
+                                                @endif        
+                                            </p>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('cities.edit', ['id' => $city->id]) }}" class="mx-3"
