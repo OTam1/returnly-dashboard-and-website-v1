@@ -650,13 +650,11 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">City</label>            
-            <select name="city" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="city" class="form-control" id="city_id" required>
               <option disabled selected>Select an option</option>
-              <option>Dammam</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
+              @foreach($cities as $city)
+              <option value="{{$city->id}}">{{$city->city_name_en}}</option>
+              @endforeach
             </select>
             @error('city')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -666,13 +664,8 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Place</label>            
-            <select name="place" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="place" class="form-control" id="place_id" required>
               <option disabled selected>Select an option</option>
-              <option>King Fahd International Airport</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
             </select>
             @error('place')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -684,13 +677,11 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Category</label>            
-            <select name="category" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="category" class="form-control" id="category_id" required>
               <option disabled selected>Select an option</option>
-              <option>Pocket Items</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
+              @foreach($categories as $category)
+              <option value="{{$category->id}}">{{$category->category_name_en}}</option>
+              @endforeach
             </select>
             @error('category')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -700,13 +691,8 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Sub-Category</label>            
-            <select name="sub_category" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="sub_category" class="form-control" id="sub_category_id" required>
               <option disabled selected>Select an option</option>
-              <option>Wallets</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
             </select>
             @error('sub_category')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -738,7 +724,39 @@
   </div>  
     <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
   </form>
-  
+  <script>
+    // public/js/dynamic-dropdowns.js
+
+$(document).ready(function () {
+    // Handle category selection change
+    $('#category_id').change(function () {
+        var categoryId = $(this).val();
+
+        // Make an AJAX request to fetch sub-categories
+        $.get('/get-sub-categories', { category_id: categoryId }, function (data) {
+            // Update the sub-category dropdown
+            $('#sub_category_id').empty();
+            $.each(data, function (key, value) {
+                $('#sub_category_id').append($('<option>').text(value).attr('value', key));
+            });
+        });
+    });
+
+    // Handle city selection change
+    $('#city_id').change(function () {
+        var cityId = $(this).val();
+
+        // Make an AJAX request to fetch places
+        $.get('/get-places', { city_id: cityId }, function (data) {
+            // Update the places dropdown
+            $('#place_id').empty();
+            $.each(data, function (key, value) {
+                $('#place_id').append($('<option>').text(value).attr('value', key));
+            });
+        });
+    });
+});
+  </script>
 @endsection
 @push('dashboard')
   {{-- <script>

@@ -12,9 +12,16 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\UserDashboardController;
+
 
 use App\Models\Item;
-use App\Models\User; 
 
 /*
 |--------------------------------------------------------------------------
@@ -30,44 +37,47 @@ use App\Models\User;
 
 Route::middleware(['role:1'])->prefix('admin')->group(function () {
 
-	Route::get('dashboard', function () {
-		//items count
-		$totalItems = Item::count(); // Count total items
-		$todayItemsCount = Item::whereDate('created_at', now())->count(); // Count items added today
-		$todayItemsActionedCount = Item::whereDate('updated_at', now())->count(); // Count items added today
-		$pendingCount = Item::where('status', 'Pending')->count(); // Count items with status "Pending"
-		$waitingCount = Item::where('status', 'Waiting for payment')->count(); // Count items with status "Waiting for payment"
-		$deliveredCount = Item::where('status', 'Delivered')->count(); // Count items with status "Delivered"
-		$cancelledCount = Item::where('status', 'Cancelled')->count(); // Count items with status "Cancelled"
-	
-		//usercount
-		$totalUsers = User::where('role_id', 3)->count(); // Count total users with role_id = 3
-		$todayUsersCount = User::where('role_id', 3)
-			->whereDate('created_at', now())
-			->count(); // Count users added today with role_id = 3
-		$todayUsersloginCount = User::where('role_id', 3)
-		->whereDate('updated_at', now())
-		->count(); // Count users added today with role_id = 3
+	//Pages
+	Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
-		return view('admin.dashboard', [
-			'totalItems' => $totalItems,
-			'todayItemsCount' => $todayItemsCount,
-			'totalUsers' => $totalUsers,
-			'todayUsersCount' => $todayUsersCount,
-			'todayUsersloginCount' => $todayUsersloginCount,
-			'todayItemsActionedCount' =>$todayItemsActionedCount,	
-			'pendingCount' => $pendingCount,
-			'waitingCount' => $waitingCount,
-			'deliveredCount' => $deliveredCount,
-			'cancelledCount' => $cancelledCount,]);})->name('admin.dashboard');
+	//cities
+	Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
+	Route::get('/cities-add', [CityController::class, 'form'])->name('cities.form');
+	Route::post('/cities', [CityController::class, 'store'])->name('cities.store');			
+	Route::get('cities/{id}/edit', [CityController::class, 'edit'])->name('cities.edit');
 
+	//places
+	Route::get('/places', [PlaceController::class, 'index'])->name('places.index');
+	Route::get('/places-add', [PlaceController::class, 'form'])->name('places.form');
+	Route::post('/places', [PlaceController::class, 'store'])->name('places.store');
+	Route::get('/places/{id}/edit-status', [PlaceController::class, 'editStatus'])->name('places.editStatus');
+
+	//categories
+	Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+	Route::get('/categories-add', [CategoryController::class, 'form'])->name('categories.form');
+	Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+	Route::get('/categories/{id}/edit', [CategoryController::class, 'editStatus'])->name('categories.editStatus');
+
+	//sub_categories
+	Route::get('/sub_categories', [SubCategoryController::class, 'index'])->name('sub_categories.index');
+	Route::get('/sub_categories-add', [SubCategoryController::class, 'form'])->name('sub_categories.form');
+	Route::post('/sub_categories', [SubCategoryController::class, 'store'])->name('sub_categories.store');
+	Route::get('/sub_categories/{id}/edit', [SubCategoryController::class, 'editStatus'])->name('sub_categories.editStatus');
+
+	//users
+	Route::get('/administrators', [AdminUsersController::class, 'administrators'])->name('admin.administrators');
+	Route::get('/users', [AdminUsersController::class, 'users'])->name('admin.users');
+	Route::get('/corprators', [AdminUsersController::class, 'corprators'])->name('admin.corprators');
+	Route::get('/disableuser/{id}/edit', [AdminUsersController::class, 'EditStatus'])->name('admin.EditStatus');
+
+	//items
+	Route::get('/requestedItems', [ItemsController::class, 'index'])->name('items.index');
+	Route::get('/requested-item/{item}', [ItemsController::class, 'show'])->name('adminitems.show');
+
+	//profile, logout
 	Route::get('/user-profile', [InfoUserController::class, 'admincreate']);
 	Route::post('/user-profile', [InfoUserController::class, 'adminstore']);		
 	Route::post('admin/logout',[AdminController::class, 'logout'])->name('admin.logout');
-
-	Route::get('billing', function () {
-		return view('billing');
-	})->name('billing');
 });
 
 //user auth routes
@@ -75,10 +85,10 @@ Route::middleware(['role:3'])->group(function () {
 
 	Route::post('/submit', [ItemController::class, 'create'])->name('items.create');
 
-	Route::get('dashboard', function () {
-		return view('user.dashboard');
-	})->name('dashboard');
-
+	Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+	Route::get('get-sub-categories',[UserDashboardController::class, 'getSubCategories'])->name('user.getSubCategories');
+	Route::get('get-places', [UserDashboardController::class, 'getPlaces'])->name('user.getPlaces');
+	
 	Route::get('profile', function () {
 		return view('profile');
 	})->name('profile');

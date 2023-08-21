@@ -625,12 +625,14 @@
 
   <form action="{{ route('items.create') }}" method="post" enctype="multipart/form-data">
     @csrf
+    <!-- Add these hidden fields to your form -->
+    <input type="hidden" name="city" id="city" />
+    <input type="hidden" name="place" id="place" />
+    <input type="hidden" name="category" id="category" />
+    <input type="hidden" name="sub_category" id="sub_category" />
     <input name="user_id" value="{{Auth::user()->id}}" hidden/>
-    <input name="city_id" value="1" hidden/>
-    <input name="place_id" value="1" hidden/>
-    <input name="category_id" value="1" hidden/>
-    <input name="sub_category_id" value="1" hidden/>
     <input name="status" value="Pending" hidden/>
+    
 
     <div class="row">
       <div class="col-md-6">
@@ -650,13 +652,11 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">City</label>            
-            <select name="city" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="city_id" class="form-control" id="city_id" required>
               <option disabled selected>Select an option</option>
-              <option>Dammam</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
+              @foreach($cities as $city)
+              <option value="{{$city->id}}">{{$city->city_name_en}}</option>
+              @endforeach
             </select>
             @error('city')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -666,13 +666,8 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Place</label>            
-            <select name="place" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="place_id" class="form-control" id="place_id" required>
               <option disabled selected>Select an option</option>
-              <option>King Fahd International Airport</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
             </select>
             @error('place')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -684,13 +679,11 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Category</label>            
-            <select name="category" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="category_id" class="form-control" id="category_id" required>
               <option disabled selected>Select an option</option>
-              <option>Pocket Items</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
+              @foreach($categories as $category)
+              <option value="{{$category->id}}">{{$category->category_name_en}}</option>
+              @endforeach
             </select>
             @error('category')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -700,13 +693,8 @@
       <div class="col-md-6">
         <div class="form-group">
             <label for="exampleFormControlInput1">Sub-Category</label>            
-            <select name="sub_category" class="form-control" id="exampleFormControlSelect1" required>
+            <select name="sub_category_id" class="form-control" id="sub_category_id" required>
               <option disabled selected>Select an option</option>
-              <option>Wallets</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
-              <option>Lorem ipsum</option>
             </select>
             @error('sub_category')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -738,7 +726,6 @@
   </div>  
     <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
   </form>
-  
 @endsection
 @push('dashboard')
   {{-- <script>

@@ -25,6 +25,7 @@ class User extends Authenticatable
         'location',
         'about_me',
         'role_id',
+        'status',
     ];
 
     /**
