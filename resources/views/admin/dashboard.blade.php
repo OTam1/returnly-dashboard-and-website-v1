@@ -55,7 +55,10 @@
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Logged-in Users</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayUsersloginCount}}
-                  <span class="text-success text-sm font-weight-bolder">@php $percentage = ($todayUsersloginCount / $totalUsers) * 100; echo($percentage.'%'); @endphp
+                  <span class="text-success text-sm font-weight-bolder">@php
+                    $percentage = ($todayUsersloginCount / $totalUsers) * 100;
+                    echo number_format($percentage, 2) . '%';
+                @endphp                
                 </h5>
               </div>
             </div>
@@ -79,7 +82,10 @@
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Requested Items</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsCount}}
-                  <span class="text-success text-sm font-weight-bolder">@php $percentage = ($todayItemsCount / $totalItems) * 100; echo($percentage.'%'); @endphp
+                  <span class="text-success text-sm font-weight-bolder">@php
+                    $percentage = ($todayItemsCount / $totalItems) * 100;
+                    echo number_format($percentage, 2) . '%';
+                @endphp                
                   </h5>
               </div>
             </div>
@@ -123,7 +129,10 @@
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Actioned Requests </p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsActionedCount}}
-                  <span class="text-success text-sm font-weight-bolder">@php $percentage = ($todayItemsActionedCount / $totalItems) * 100; echo($percentage.'%'); @endphp
+                  <span class="text-success text-sm font-weight-bolder">@php
+                    $percentage = ($todayItemsActionedCount / $totalItems) * 100;
+                    echo number_format($percentage, 2) . '%';
+                @endphp                
                 </h5>
               </div>
             </div>
