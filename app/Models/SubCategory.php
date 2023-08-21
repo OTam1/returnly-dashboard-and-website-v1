@@ -5,30 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class SubCategory extends Model
 {
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'item_name',
-        'color',
-        'city_id',
-        'city',
-        'place_id',
-        'place',
         'category_id',
-        'category',
-        'sub_category_id',
-        'sub_category',
-        'date',
-        'time',
-        'description',
+        'sub_category_name_en',
+        'sub_category_name_ar',
         'status',
-        'image',
     ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 }

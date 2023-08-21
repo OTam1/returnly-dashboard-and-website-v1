@@ -5,7 +5,7 @@
       @if(request()->is('admin/login'))
       Return-ly admin Dashboard
       @endif
-      @if(request()->is('login'))
+      @if(request()->is('login')||request()->is('register'))
       Return-ly user Dashboard
       @endif
     </a>
@@ -36,7 +36,7 @@
         @endif
         @endif
 
-        @if(request()->is('login'))
+        @if(request()->is('login')||request()->is('register'))
         <li class="nav-item">
           <a class="nav-link me-2" href="{{ auth()->user() ? url('static-sign-up') : url('register') }}">
             <i class="fas fa-user-circle opacity-6 me-1 {{ (Request::is('static-sign-up') ? '' : 'text-dark') }}"></i>
