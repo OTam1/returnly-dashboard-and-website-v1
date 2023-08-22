@@ -50,7 +50,10 @@
                                         Address
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Creation Date
+                                        Item Lost Date/Time
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Creation Date/Time
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Status
@@ -87,7 +90,10 @@
                                             <p class="text-xs font-weight-bold mb-0">{{$item->place}}</p>
                                         </td>
                                         <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{$item->date}}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{$item->date}} {{$item->time}}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>
                                         </td>
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">{{$item->status}}</p>
