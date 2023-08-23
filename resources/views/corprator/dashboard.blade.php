@@ -14,10 +14,14 @@
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
-                    $percentage = ($todayItemsCount / $totalItems) * 100;
-                    echo number_format($percentage, 2) . '%';
-                @endphp                
-                  </h5>
+                    if ($totalItems != 0) {
+                        $percentage = ($todayItemsCount / $totalItems) * 100;
+                        echo number_format($percentage, 2) . '%';
+                    } else {
+                        echo 'N/A'; // Handle the case where $totalItems is zero.
+                    }
+                @endphp
+                </h5>
               </div>
             </div>
             <div class="col-4 text-end">
@@ -61,8 +65,12 @@
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsActionedCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
+                    if ($totalItems != 0) {
                     $percentage = ($todayItemsActionedCount / $totalItems) * 100;
                     echo number_format($percentage, 2) . '%';
+                    } else {
+                        echo 'N/A'; // Handle the case where $totalItems is zero.
+                    }
                 @endphp                
                 </h5>
               </div>
