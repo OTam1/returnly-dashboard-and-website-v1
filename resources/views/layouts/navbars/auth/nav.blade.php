@@ -30,6 +30,17 @@
                 </a>
             </li>
             @endif
+            @if(auth()->user()->role_id === 2) <!--  role_id 1 represents administrators -->
+            <li class="nav-item d-flex align-items-center ps-3 pe-3">
+                <form id="logout-form" action="{{ route('corprator.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>                
+                <a href="{{ route('corprator.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-body font-weight-bold px-0">
+                    <i class="fa fa-user me-sm-1"></i>
+                    <span class="d-sm-inline">Sign Out</span>
+                </a>
+            </li>
+            @endif
             @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
             <li class="nav-item d-flex align-items-center ps-3 pe-3">
                 <a href="{{ url('/logout')}}" class="nav-link text-body font-weight-bold px-0">

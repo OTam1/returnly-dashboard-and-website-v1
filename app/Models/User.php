@@ -51,6 +51,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
-
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
+    
     
 }

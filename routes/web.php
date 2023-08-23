@@ -19,7 +19,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\UserDashboardController;
-
+use App\Http\Controllers\CorpratorsController;
 
 use App\Models\Item;
 
@@ -81,12 +81,33 @@ Route::middleware(['role:1'])->prefix('admin')->group(function () {
 	//items
 	Route::get('/requestedItems', [ItemsController::class, 'index'])->name('items.index');
 	Route::get('/requested-item/{item}', [ItemsController::class, 'show'])->name('adminitems.show');
+	Route::get('/itemstatus/{item}/{status}', [AdminController::class, 'itemstatus'])->name('admin.itemstatus');
 
 	//profile, logout
 	Route::get('/user-profile', [InfoUserController::class, 'admincreate']);
 	Route::post('/user-profile', [InfoUserController::class, 'adminstore']);		
 	Route::post('admin/logout',[AdminController::class, 'logout'])->name('admin.logout');
 });
+
+//corprators auth routes 
+Route::middleware(['role:2'])->prefix('corprators')->group(function () {
+
+	//Pages
+	Route::get('dashboard', [CorpratorsController::class, 'index'])->name('corprator.dashboard');
+
+	//items
+	Route::get('/requestedItems', [ItemsController::class, 'corpratorindex'])->name('corprator.corpratorindex');
+	Route::get('/requested-item/{item}', [ItemsController::class, 'corpratorshow'])->name('corprator.corpratorshow');
+	Route::get('/itemstatus/{item}/{status}', [CorpratorsController::class, 'itemstatus'])->name('corprator.itemstatus');
+
+	
+
+	//profile, logout
+	Route::get('/user-profile', [InfoUserController::class, 'corpratorcreate'])->name('corprator.corpratorcreate');
+	Route::post('/user-profile', [InfoUserController::class, 'corpratorstore'])->name('corprator.corpratorstore');		
+	Route::post('/logout',[CorpratorsController::class, 'logout'])->name('corprator.logout');
+});
+
 
 //user auth routes
 Route::middleware(['role:3'])->group(function () {
@@ -156,6 +177,10 @@ Route::group(['middleware' => 'guest'], function () {
 	//admin dashboard
 	Route::get('admin/login',  [AdminController::class, 'showLoginForm'])->name('admin.login');
 	Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
+
+
+	Route::get('corprators/login',  [CorpratorsController::class, 'showLoginForm'])->name('corprator.login');
+	Route::post('corprators/login', [CorpratorsController::class, 'login'])->name('corprator.login.submit');
 
 });
 //web page
