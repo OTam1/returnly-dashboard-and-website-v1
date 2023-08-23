@@ -119,6 +119,6 @@ class AdminUsersController extends Controller
             'status' => !$administrators->status,
         ]);
 
-        return redirect()->back()->with('success', 'Category status updated successfully!');
+        return redirect()->back()->with('success', 'status updated successfully!');
     }
 }

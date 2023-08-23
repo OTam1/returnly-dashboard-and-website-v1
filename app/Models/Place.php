@@ -23,5 +23,10 @@ class Place extends Model
     {
         return $this->belongsTo(City::class, 'city_id');
     }
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'place_id');
+    }
+    
 
 }
