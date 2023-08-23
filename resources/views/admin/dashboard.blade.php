@@ -56,8 +56,12 @@
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayUsersloginCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
-                    $percentage = ($todayUsersloginCount / $totalUsers) * 100;
-                    echo number_format($percentage, 2) . '%';
+                    if ($totalUsers != 0){
+                      $percentage = ($todayUsersloginCount / $totalUsers) * 100;
+                      echo number_format($percentage, 2) . '%';
+                    } else {
+                        echo 'N/A'; // Handle the case where $totalItems is zero.
+                    }
                 @endphp                
                 </h5>
               </div>
@@ -83,8 +87,12 @@
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
-                    $percentage = ($todayItemsCount / $totalItems) * 100;
-                    echo number_format($percentage, 2) . '%';
+                    if ($totalItems != 0) {
+                        $percentage = ($todayItemsCount / $totalItems) * 100;
+                        echo number_format($percentage, 2) . '%';
+                    } else {
+                        echo 'N/A'; // Handle the case where $totalItems is zero.
+                    }
                 @endphp                
                   </h5>
               </div>
@@ -130,8 +138,12 @@
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsActionedCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
+                    if ($totalItems != 0) {
                     $percentage = ($todayItemsActionedCount / $totalItems) * 100;
                     echo number_format($percentage, 2) . '%';
+                    } else {
+                        echo 'N/A'; // Handle the case where $totalItems is zero.
+                    }
                 @endphp                
                 </h5>
               </div>
