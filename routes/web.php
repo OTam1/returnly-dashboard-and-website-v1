@@ -123,40 +123,40 @@ Route::middleware(['role:3'])->group(function () {
 	Route::get('get-sub-categories',[UserDashboardController::class, 'getSubCategories'])->name('user.getSubCategories');
 	Route::get('get-places', [UserDashboardController::class, 'getPlaces'])->name('user.getPlaces');
 	
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
+	// Route::get('profile', function () {
+	// 	return view('profile');
+	// })->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
+	// Route::get('rtl', function () {
+	// 	return view('rtl');
+	// })->name('rtl');
 
 	Route::get('item-requests', function () {
 		$userItems = Item::where('user_id', Auth::user()->id)->get();
-		return view('item.list', ['items' => $userItems]);
+		return view('user.item.list', ['items' => $userItems]);
 	})->name('user-management');
 	
 	Route::get('item-requests/{item}', function ($item) {
 		$item = Item::findOrFail($item); // Retrieve the item by its ID
-		return view('item.show', ['item' => $item]);
+		return view('user.item.show', ['item' => $item]);
 	})->name('items.show');
 	
 	
-	Route::get('tables', function () {
-		return view('tables');
-	})->name('tables');
+	// Route::get('tables', function () {
+	// 	return view('tables');
+	// })->name('tables');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
+    // Route::get('virtual-reality', function () {
+	// 	return view('virtual-reality');
+	// })->name('virtual-reality');
 
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
+    // Route::get('static-sign-in', function () {
+	// 	return view('static-sign-in');
+	// })->name('sign-in');
 
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
+    // Route::get('static-sign-up', function () {
+	// 	return view('static-sign-up');
+	// })->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
