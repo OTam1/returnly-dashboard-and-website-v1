@@ -62,10 +62,15 @@ class AdminUsersController extends Controller
     public function corprators()
     {
         $corprators = User::where('role_id', 2)->get();
-
-        // Now you can return the administrators to your view or perform any other actions.
+        
+        // Iterate through each user
+        foreach ($corprators as $corprator) {
+            // Retrieve the place names associated with this user
+            $placeNames = $corprator->places->pluck('name')->toArray();
+        }
         return view('admin.corprators', compact('corprators'));
     }
+    
     public function AddCorpratorsForm(Request $request)
     {
         $cities = City::where('status', 1)->get();

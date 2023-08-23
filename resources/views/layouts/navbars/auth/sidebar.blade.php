@@ -77,6 +77,14 @@
       </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link {{ (Request::is('admin/assign-corprator-to-place') ? 'active' : '') }}" href="{{ url('admin/assign-corprator-to-place') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/assign-corprator-to-place') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+          </div>
+          <span class="nav-link-text ms-1">Assign Corprators to place</span>
+      </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/users') ? 'active' : '') }}" href="{{ url('admin/users') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users ps-2 pe-2 text-center text-dark {{ (Request::is('admin/users') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>

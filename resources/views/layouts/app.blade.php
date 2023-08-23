@@ -81,6 +81,32 @@
         });
     </script>        
     @endif
+    @if (\Request::is('admin/assign-corprator-to-place'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>  
+        $(document).ready(function () {        
+            // Handle city selection change
+            $('#city_id').change(function () {
+                var cityId = $(this).val();
+                // Make an AJAX request to fetch places
+                $.get('/admin/get-places', { city_id: cityId }, function (data) {
+                    // Update the places dropdown
+                    var placeSelect = $('#place_id');
+                    placeSelect.empty(); // Clear existing options
+                    placeSelect.append($('<option>').text('Select an option').attr('disabled', 'disabled').attr('selected', 'selected'));
+                    $.each(data, function (key, value) {
+                        placeSelect.append($('<option>').text(value).attr('value', key));
+                    });
+                });
+            });        
+            // Handle place selection change
+            $('#place_id').change(function () {
+                var selectedPlace = $('#place_id option:selected').text();
+                $('#place').val(selectedPlace);
+            });
+        });
+    </script>        
+    @endif
     @if (\Request::is('dashboard'))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>  
