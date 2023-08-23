@@ -35,6 +35,10 @@
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Assigned Place
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Phone no.
                                     </th>
                                     <th
@@ -70,6 +74,13 @@
                                         </td>
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">{{ $corprator->email }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            @if ($corprator->places->isNotEmpty())
+                                            <p class="text-xs font-weight-bold mb-0">{{ $corprator->places->first()->place_name_en }}</p>
+                                        @else
+                                            <p class="text-xs font-weight-bold mb-0">No Place Assigen</p>
+                                        @endif
                                         </td>
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">{{ $corprator->phone }}</p>

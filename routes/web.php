@@ -20,6 +20,8 @@ use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\CorpratorsController;
+use App\Http\Controllers\AssignmentController;
+
 
 use App\Models\Item;
 
@@ -77,6 +79,9 @@ Route::middleware(['role:1'])->prefix('admin')->group(function () {
 	Route::get('/get-places',[AdminUsersController::class, 'getPlaces'])->name('admin.getPlaces');
 
 	Route::get('/disableuser/{id}/edit', [AdminUsersController::class, 'EditStatus'])->name('admin.EditStatus');
+
+	Route::get('/assign-corprator-to-place', [AssignmentController::class, 'index'])->name('admin.AssignCorpratorToPlaceForm');
+	Route::post('/assign-corprator-to-place', [AssignmentController::class, 'assign'])->name('admin.AssignCorpratorToPlace');
 
 	//items
 	Route::get('/requestedItems', [ItemsController::class, 'index'])->name('items.index');
