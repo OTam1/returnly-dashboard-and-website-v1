@@ -12,7 +12,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">Corprators</h5>
+                            <h5 class="mb-0">corporators</h5>
                         </div>
                         <a href="{{ route('admin.AddCorpratorsForm') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Corprator User</a>
                     </div>
