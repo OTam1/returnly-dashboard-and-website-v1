@@ -25,6 +25,17 @@ class CheckRole
             return $next($request);
         }
     
-        abort(403, 'Unauthorized.');
-    }
-    }
+        // Redirect the user to their role-specific dashboard
+        switch ($user->role_id) {
+            case 1:
+                return redirect()->route('admin.dashboard');
+            case 2:
+                return redirect()->route('corprator.dashboard');
+            case 3:
+                return redirect()->route('dashboard');
+            // Add more cases for other roles if needed
+            default:
+                abort(403, 'Unauthorized.');
+        }
+    }    
+}
