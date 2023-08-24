@@ -69,11 +69,11 @@
       </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('admin/corprators') ? 'active' : '') }}" href="{{ url('admin/corprators') }}">
+        <a class="nav-link {{ (Request::is('admin/corporators') ? 'active' : '') }}" href="{{ url('admin/corporators') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/corprators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+              <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/corporators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Corprators Users</span>
+          <span class="nav-link-text ms-1">corporators Users</span>
       </a>
       </li>
       <li class="nav-item">
@@ -81,7 +81,7 @@
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/assign-corprator-to-place') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Assign Corprators to place</span>
+          <span class="nav-link-text ms-1">Assign Corporators to place</span>
       </a>
       </li>
       <li class="nav-item">
@@ -147,7 +147,7 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Corprator Services</h6>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('corprators/dashboard') ? 'active' : '') }}" href="{{ url('corprators/dashboard') }}">
+        <a class="nav-link {{ (Request::is('corporators/dashboard') ? 'active' : '') }}" href="{{ url('corporators/dashboard') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -167,9 +167,9 @@
         </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/user-profile') ? 'active' : '') }} " href="{{ url('corprators/user-profile') }}">
+        <a class="nav-link {{ (Request::is('corporators/user-profile') ? 'active' : '') }} " href="{{ url('corporators/user-profile') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem;" class="fas fa-lg fa-address-card ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            <i style="font-size: 1rem;" class="fas fa-lg fa-address-card ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
           <span class="nav-link-text ms-1">Profile</span>
       </a>
@@ -182,40 +182,40 @@
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/corprators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Corprators Users</span>
+          <span class="nav-link-text ms-1">corporators Users</span>
       </a>
       </li> 
       <li class="nav-item mt-2">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Configurations</h6>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/cities') ? 'active' : '') }} " href="{{ url('corprators/cities') }}">
+        <a class="nav-link {{ (Request::is('corporators/cities') ? 'active' : '') }} " href="{{ url('corporators/cities') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/cities') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+              <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/cities') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
           <span class="nav-link-text ms-1">Cities</span>
       </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/places') ? 'active' : '') }} " href="{{ url('corprators/places') }}">
+        <a class="nav-link {{ (Request::is('corporators/places') ? 'active' : '') }} " href="{{ url('corporators/places') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/places') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+              <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/places') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
           <span class="nav-link-text ms-1">Places</span>
       </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/categories') ? 'active' : '') }} " href="{{ url('corprators/categories') }}">
+        <a class="nav-link {{ (Request::is('corporators/categories') ? 'active' : '') }} " href="{{ url('corporators/categories') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
           <span class="nav-link-text ms-1">Categories</span>
       </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/sub_categories') ? 'active' : '') }} " href="{{ url('corprators/sub_categories') }}">
+        <a class="nav-link {{ (Request::is('corporators/sub_categories') ? 'active' : '') }} " href="{{ url('corporators/sub_categories') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/sub_categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/sub_categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
 
           <span class="nav-link-text ms-1">Sub Categories</span>
@@ -225,9 +225,9 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Item requests</h6>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('corprators/requestedItems') ? 'active' : '') }} " href="{{ url('corprators/requestedItems') }}">
+        <a class="nav-link {{ (Request::is('corporators/requestedItems') ? 'active' : '') }} " href="{{ url('corporators/requestedItems') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('corprators/requestedItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/requestedItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
           <span class="nav-link-text ms-1">Requested Items</span>
       </a>

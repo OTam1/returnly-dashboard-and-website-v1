@@ -73,9 +73,9 @@ Route::middleware(['role:1'])->prefix('admin')->group(function () {
 
 	Route::get('/users', [AdminUsersController::class, 'users'])->name('admin.users');
 	
-	Route::get('/corprators', [AdminUsersController::class, 'corprators'])->name('admin.corprators');
-	Route::get('/corprators-add', [AdminUsersController::class, 'AddCorpratorsForm'])->name('admin.AddCorpratorsForm');
-	Route::post('/corprators', [AdminUsersController::class, 'AddCorprators'])->name('admin.AddCorprators');
+	Route::get('/corporators', [AdminUsersController::class, 'corprators'])->name('admin.corprators');
+	Route::get('/corporators-add', [AdminUsersController::class, 'AddCorpratorsForm'])->name('admin.AddCorpratorsForm');
+	Route::post('/corporators', [AdminUsersController::class, 'AddCorprators'])->name('admin.AddCorprators');
 	Route::get('/get-places',[AdminUsersController::class, 'getPlaces'])->name('admin.getPlaces');
 
 	Route::get('/disableuser/{id}/edit', [AdminUsersController::class, 'EditStatus'])->name('admin.EditStatus');
@@ -95,7 +95,7 @@ Route::middleware(['role:1'])->prefix('admin')->group(function () {
 });
 
 //corprators auth routes 
-Route::middleware(['role:2'])->prefix('corprators')->group(function () {
+Route::middleware(['role:2'])->prefix('corporators')->group(function () {
 
 	//Pages
 	Route::get('dashboard', [CorpratorsController::class, 'index'])->name('corprator.dashboard');
@@ -184,8 +184,8 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::post('admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
 
 
-	Route::get('corprators/login',  [CorpratorsController::class, 'showLoginForm'])->name('corprator.login');
-	Route::post('corprators/login', [CorpratorsController::class, 'login'])->name('corprator.login.submit');
+	Route::get('corporators/login',  [CorpratorsController::class, 'showLoginForm'])->name('corprator.login');
+	Route::post('corporators/login', [CorpratorsController::class, 'login'])->name('corprator.login.submit');
 
 });
 //web page
