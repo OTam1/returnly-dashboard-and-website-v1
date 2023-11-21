@@ -255,8 +255,8 @@
                             <div class="home-text text-black">
                                 <h1 class="sub-heading">Let us show you some stats</h1>
                                 <h1 class="main-heading mt-3 mb-4">Our Happy founds stats.</h1>
-                                <p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                    aliqua</p>
+                                <!--<p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
+                                <!--    aliqua</p>-->
                             </div>
                         </div>
                     </div>
@@ -517,7 +517,7 @@
                 </div>
                 <div class="address d-flex mb-4">
                     <i class="fas fa-phone-volume address-icon mr-3"></i>
-                    <p>+11 22 55592
+                    <p>+966 11 461 0000
                         {{-- <span class="ml-3">  +1 631 12345678 </span>4 --}}
                      </p>
                 </div>

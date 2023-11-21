@@ -5,7 +5,7 @@
 <form>
     <label for="exampleFormControlInput1">Item image:</label>
     <div class="centered-image-container" style="text-align: center;">
-        <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="30%">
+        <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="8%">
     </div>
       @if ($item->status == "Waiting for verification")
       <div class="progress-wrapper">
