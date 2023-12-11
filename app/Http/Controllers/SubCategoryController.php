@@ -44,7 +44,7 @@ class SubCategoryController extends Controller
 
 
         return redirect()->route('sub_categories.index')
-            ->with('success', 'Sub Category created successfully');
+            ->with('success', __('dashboard.sub-category-created-success'));
     }
 
     public function editStatus(Request $request, $id)
@@ -56,7 +56,7 @@ class SubCategoryController extends Controller
                 'status' => !$sub_categories->status,
             ]);
     
-        return redirect()->route('sub_categories.index')->with('success', 'Sub Category status updated successfully!');
+        return redirect()->route('sub_categories.index')->with('success', __('dashboard.sub-category-status-updated-success'));
     }
     
 }

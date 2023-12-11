@@ -26,7 +26,7 @@
                         </div>
                     @endif
                     <div class="card-header pb-0 text-left bg-transparent">
-                        <h4 class="mb-0">Forgot your password? Enter your email here</h4>
+                        <h4 class="mb-0">{{__('dashboard.forgot-password')}}</h4>
                     </div>
                     <div class="card-body">
                     
@@ -42,17 +42,13 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Recover your password</button>
+                                <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">{{__('dashboard.recover-password')}}</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                    <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

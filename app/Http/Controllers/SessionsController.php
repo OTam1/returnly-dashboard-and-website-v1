@@ -24,17 +24,17 @@ class SessionsController extends Controller
             if ($user->role_id === 3) {
                 if ($user->status === 1) {
                     session()->regenerate();
-                    return redirect('dashboard')->with(['success' => 'You are logged in.']);
+                    return redirect('dashboard')->with(['success' => __('dashboard.logged-in')]);
                 } else {
                     Auth::logout();
-                    return back()->withErrors(['email' => 'Your account is disabled.']);
+                    return back()->withErrors(['email' => __('dashboard.account-disabled')]);
                 }
             } else {
                 Auth::logout();
-                return back()->withErrors(['email' => 'You do not have permission to log in.']);
+                return back()->withErrors(['email' => __('dashboard.no-permission')]);
             }
         } else {
-            return back()->withErrors(['email' => 'Email or password invalid.']);
+            return back()->withErrors(['email' => __('dashboard.invalid-credentials')]);
         }
     }
     
@@ -42,6 +42,6 @@ class SessionsController extends Controller
     {
         Auth::logout();
 
-        return redirect('/login')->with(['success' => 'You\'ve been logged out.']);
+        return redirect('/login')->with(['success' => __('dashboard.logged-out')]);
     }
 }

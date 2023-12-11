@@ -52,7 +52,7 @@ class InfoUserController extends Controller
         ]);
 
 
-        return redirect('/user-profile')->with('success','Profile updated successfully');
+        return redirect('/user-profile')->with('success',__('dashboard.profile-updated-successfully'));
     }
     public function admincreate()
     {
@@ -95,7 +95,7 @@ class InfoUserController extends Controller
         ]);
 
 
-        return redirect('admin/user-profile')->with('success','Profile updated successfully');
+        return redirect('admin/user-profile')->with('success',__('dashboard.profile-updated-successfully'));
     }
 
     public function corpratorcreate()
@@ -139,7 +139,7 @@ class InfoUserController extends Controller
         ]);
 
 
-        return redirect()->route('corprator.corpratorcreate')->with('success','Profile updated successfully');
+        return redirect()->route('corprator.corpratorcreate')->with('success',__('dashboard.profile-updated-successfully'));
     }
 
 }

@@ -39,7 +39,7 @@ class CityController extends Controller
             'status' => $request->input('status', true), // Default to true if not provided
         ]);
 
-        return redirect()->route('cities.index')->with('success', 'City created successfully!');
+        return redirect()->route('cities.index')->with('success', __('dashboard.city-created-success'));
     }
 
     public function edit(Request $request, $id)
@@ -51,7 +51,7 @@ class CityController extends Controller
             'status' => !$city->status,
         ]);
 
-        return redirect()->route('cities.index')->with('success', 'City status updated successfully');
+        return redirect()->route('cities.index')->with('success', __('dashboard.city-status-updated-successfully'));
     }
 
 }

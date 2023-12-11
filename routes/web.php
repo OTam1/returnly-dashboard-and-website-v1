@@ -21,9 +21,10 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\CorpratorsController;
 use App\Http\Controllers\AssignmentController;
-
+use App\Http\Controllers\LanguageController;
 
 use App\Models\Item;
+use App\Models\StoreItem;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +105,22 @@ Route::middleware(['role:2'])->prefix('corporators')->group(function () {
 	Route::get('/requestedItems', [ItemsController::class, 'corpratorindex'])->name('corprator.corpratorindex');
 	Route::get('/requested-item/{item}', [ItemsController::class, 'corpratorshow'])->name('corprator.corpratorshow');
 	Route::get('/itemstatus/{item}/{status}', [CorpratorsController::class, 'itemstatus'])->name('corprator.itemstatus');
+
+	Route::get('/storeItems', [ItemsController::class, 'corpratorstoreitems'])->name('corprator.corpratorstoreitems');
+	Route::post('/submit-store-item', [ItemController::class, 'store'])->name('corprator.store');
+
+	Route::get('stored-items', function () {
+		$userItems = StoreItem::where('user_id', Auth::user()->id)->get();
+		return view('corprator.storedItems.list', ['items' => $userItems]);
+	})->name('stored-items.list');
+	
+	Route::get('stored-items/{item}', function ($item) {
+		$item = StoreItem::findOrFail($item); // Retrieve the item by its ID
+		return view('corprator.storedItems.show', ['item' => $item]);
+	})->name('stored-items.show');
+
+	Route::get('get-sub-categories',[ItemsController::class, 'getSubCategories'])->name('corprator.getSubCategories');
+	Route::get('get-places', [ItemsController::class, 'getPlaces'])->name('corprator.getPlaces');
 
 	
 
@@ -187,6 +204,11 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('corporators/login',  [CorpratorsController::class, 'showLoginForm'])->name('corprator.login');
 	Route::post('corporators/login', [CorpratorsController::class, 'login'])->name('corprator.login.submit');
 
+	Route::get('item/{item}', function ($item) {
+		$item = StoreItem::findOrFail($item); // Retrieve the item by its ID
+		return view('guest.item.show', ['item' => $item]);
+	})->name('guest.items.show');
+
 });
 //web page
 Route::get('/login', function () {
@@ -197,3 +219,5 @@ Route::get('/', function () {
 });
 Route::post('/joinus', [ContactController::class, 'joinUs'])->name('joinus');
 Route::post('/contactus', [ContactController::class, 'contactUs'])->name('contactus');	
+Route::get('/switch-language/{locale}',  [LanguageController::class, 'switchLanguage'])->name('switch.language');
+Route::get('/terms-and-conditions', function () {return view('terms-and-conditions');})->name('terms-and-conditions');

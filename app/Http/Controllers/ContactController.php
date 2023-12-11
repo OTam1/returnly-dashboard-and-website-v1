@@ -25,7 +25,7 @@ class ContactController extends Controller
         Mail::to('info@return-ly.com')->send(new JoinUsEmail($validatedData));
 
         // Return a response indicating success or failure
-        return response()->json(['message' => 'Email sent successfully']);
+        return response()->json(['message' => __('dashboard.email-sent-successfully')]);
     }
 
     public function contactUs(Request $request)
@@ -42,6 +42,6 @@ class ContactController extends Controller
         Mail::to('info@return-ly.com')->send(new ContactUsEmail($validatedData));
 
         // Return a response indicating success or failure
-        return response()->json(['message' => 'Email sent successfully']);
+        return response()->json(['message' => __('dashboard.email-sent-successfully')]);
     }
 }

@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Requested Items</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.todays-requested-items')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
@@ -39,7 +39,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Requested Items</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.total-requested-items')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$totalItems}}
                   </span>
@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Actioned Requests </p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.todays-actioned-requests')}} </p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$todayItemsActionedCount}}
                   <span class="text-success text-sm font-weight-bolder">@php
@@ -92,7 +92,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Pending Requests</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.pending-requests')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$pendingCount}}
                 </h5>
@@ -113,7 +113,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Waiting payment</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.waiting-payment')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$waitingCount}}
                 </h5>
@@ -134,7 +134,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Delivered Requests</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.delivered-requests')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$deliveredCount}}
                 </h5>
@@ -155,7 +155,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Cancelled Requests</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">{{__('dashboard.cancelled-requests')}}</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$cancelledCount}}
                 </h5>

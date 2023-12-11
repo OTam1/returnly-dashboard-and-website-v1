@@ -60,13 +60,13 @@ class AdminController extends Controller
             return redirect()->intended(route('admin.dashboard')); // Use route() to generate the correct URL
         } else {
             // Authentication failed
-            return back()->withErrors(['email'=>'Email or password invalid.']);
+            return back()->withErrors(['email'=> __('dashboard.invalid-credentials') ]);
         }
     }
     public function logout()
     {
         Auth::guard('web')->logout(); // Use the web guard here
-        return redirect()->route('admin.login')->with(['success' => 'You\'ve been logged out.']);
+        return redirect()->route('admin.login')->with(['success' => __('dashboard.logged-out') ]);
     }
 
     public function itemstatus(Request $request, $item, $status)
@@ -78,7 +78,7 @@ class AdminController extends Controller
         $item->save();
 
         // You can add further logic, such as redirects or responses
-        return redirect()->back()->with('success', 'Item status updated successfully');
+        return redirect()->back()->with('success', __('dashboard.status-updated-success'));
     }
 
 }

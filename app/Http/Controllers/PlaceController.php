@@ -44,7 +44,7 @@ class PlaceController extends Controller
 
 
         return redirect()->route('places.index')
-            ->with('success', 'Place created successfully');
+            ->with('success', __('dashboard.place-created-success'));
     }
 
     public function editStatus(Request $request, $id)
@@ -56,7 +56,7 @@ class PlaceController extends Controller
             'status' => !$place->status,
         ]);
 
-    return redirect()->route('places.index')->with('success', 'Place status updated successfully!');
+    return redirect()->route('places.index')->with('success', __('dashboard.place-status-updated-success'));
 }
 
 }

@@ -3,7 +3,7 @@
 @section('content')
 
 <form>
-    <label for="exampleFormControlInput1">Item image:</label>
+    <label for="exampleFormControlInput1">{{__('dashboard.show-item-image')}}</label>
     <div class="centered-image-container" style="text-align: center;">
         <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="8%">
     </div>
@@ -11,7 +11,7 @@
       <div class="progress-wrapper">
         <div class="progress-info">
           <div class="progress-percentage">
-            <span class="text-sm font-weight-normal">Status: {{$item->status}} - 80%</span>
+            <span class="text-sm font-weight-normal">{{__('dashboard.show-status')}} {{$item->status}} - 80%</span>
           </div>
         </div>
         <div class="progress">
@@ -23,7 +23,7 @@
       <div class="progress-wrapper">
         <div class="progress-info">
           <div class="progress-percentage">
-            <span class="text-sm font-weight-normal">Status: {{$item->status}} - 100%</span>
+            <span class="text-sm font-weight-normal">{{__('dashboard.show-status')}} {{$item->status}} - 100%</span>
           </div>
         </div>
         <div class="progress">
@@ -35,7 +35,7 @@
       <div class="progress-wrapper">
         <div class="progress-info">
           <div class="progress-percentage">
-            <span class="text-sm font-weight-normal">Status: {{$item->status}} - 100%</span>
+            <span class="text-sm font-weight-normal">{{__('dashboard.show-status')}} {{$item->status}} - 100%</span>
           </div>
         </div>
         <div class="progress">
@@ -47,7 +47,7 @@
       <div class="progress-wrapper">
         <div class="progress-info">
           <div class="progress-percentage">
-            <span class="text-sm font-weight-normal">Status: {{$item->status}} - 20%</span>
+            <span class="text-sm font-weight-normal">{{__('dashboard.show-status')}} {{$item->status}} - 20%</span>
           </div>
         </div>
         <div class="progress">
@@ -60,7 +60,7 @@
       <div class="progress-wrapper">
         <div class="progress-info">
           <div class="progress-percentage">
-            <span class="text-sm font-weight-normal">Status: {{$item->status}} - 50%</span>
+            <span class="text-sm font-weight-normal">{{__('dashboard.show-status')}} {{$item->status}} - 50%</span>
           </div>
         </div>
         <div class="progress">
@@ -72,13 +72,13 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Item name</label>
+          <label for="exampleFormControlInput1">{{__('dashboard.item-name')}}</label>
           <input name="item_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Wallet" value="{{$item->item_name}}" disabled>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Color</label>
+          <label for="exampleFormControlInput1">{{__('dashboard.color')}}</label>
           <input name="color" type="text" placeholder="Black" class="form-control" value="{{$item->color}}" disabled/>
         </div>
       </div>
@@ -86,7 +86,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-            <label for="exampleFormControlInput1">City</label>            
+            <label for="exampleFormControlInput1">{{__('dashboard.city')}}</label>            
             <select name="city" class="form-control" id="exampleFormControlSelect1"  disabled>
               <option disabled selected>{{$item->color}}</option>
             </select>
@@ -97,7 +97,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-            <label for="exampleFormControlInput1">Place</label>            
+            <label for="exampleFormControlInput1">{{__('dashboard.place')}}</label>            
             <select name="place" class="form-control" id="exampleFormControlSelect1" disabled>
                 <option disabled selected>{{$item->place}}</option>
             </select>
@@ -110,7 +110,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-            <label for="exampleFormControlInput1">Category</label>            
+            <label for="exampleFormControlInput1">{{__('dashboard.category')}}</label>            
             <select name="category" class="form-control" id="exampleFormControlSelect1" disabled>
                 <option disabled selected>{{$item->category}}</option>
             </select>
@@ -121,7 +121,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-            <label for="exampleFormControlInput1">Sub-Category</label>            
+            <label for="exampleFormControlInput1">{{__('dashboard.sub-category')}}</label>            
             <select name="sub_category" class="form-control" id="exampleFormControlSelect1" disabled>
                 <option disabled selected>{{$item->sub_category}}</option>
             </select>
@@ -134,19 +134,19 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="example-date-input" class="form-control-label">Date</label>
+          <label for="example-date-input" class="form-control-label">{{__('dashboard.date')}}</label>
           <input name="date" class="form-control" type="date" value="{{$item->date}}" id="example-date-input" onfocus="focused(this)" onfocusout="defocused(this)" disabled>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="example-time-input" class="form-control-label">Time</label>
+          <label for="example-time-input" class="form-control-label">{{__('dashboard.time')}}</label>
           <input name="time" class="form-control" type="time" value="{{$item->time}}" id="example-time-input" onfocus="focused(this)" onfocusout="defocused(this)" disabled>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Description</label>
+      <label for="exampleFormControlTextarea1">{{__('dashboard.description')}}</label>
       <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false" disabled>{{$item->description}}</textarea>
     </div>
   </form>

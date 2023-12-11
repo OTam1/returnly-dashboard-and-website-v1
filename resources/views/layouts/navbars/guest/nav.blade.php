@@ -5,6 +5,9 @@
       @if(request()->is('admin/login'))
       Return-ly admin Dashboard
       @endif
+      @if(request()->is('corporators/login'))
+      Return-ly admin Corporators
+      @endif
       @if(request()->is('login')||request()->is('register'))
       Return-ly user Dashboard
       @endif
@@ -40,16 +43,32 @@
         <li class="nav-item">
           <a class="nav-link me-2" href="{{ auth()->user() ? url('static-sign-up') : url('register') }}">
             <i class="fas fa-user-circle opacity-6 me-1 {{ (Request::is('static-sign-up') ? '' : 'text-dark') }}"></i>
-            Sign Up
+            {{__('dashboard.signup')}}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link me-2" href="{{ auth()->user() ? url('static-sign-in') : url('login') }}">
             <i class="fas fa-key opacity-6 me-1 {{ (Request::is('static-sign-up') ? '' : 'text-dark') }}"></i>
-            Sign In
+            {{__('dashboard.signin')}}
           </a>
         </li>
         @endif
+        
+        @if (session('locale') == 'en')
+        <li class="nav-item">
+            <a class="nav-link me-2" href="{{ route('switch.language', 'ar') }}">
+                <i class="fa fa-globe cursor-pointer" aria-hidden="true"></i>
+                {{ __('Ar') }}
+            </a>
+        </li>
+    @else
+        <li class="nav-item">
+            <a class="nav-link me-2" href="{{ route('switch.language', 'en') }}">
+                <i class="fa fa-globe cursor-pointer" aria-hidden="true"></i>
+                {{ __('En') }}
+            </a>
+        </li>
+    @endif
       </ul>
       <ul class="navbar-nav d-lg-block d-none">
         <li class="nav-item">

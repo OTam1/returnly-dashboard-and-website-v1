@@ -1,23 +1,27 @@
-
+@if (session('locale') == 'ar')
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3 rotate-caret " id="sidenav-main">
+@else
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
+@endif
+
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('dashboard') }}">
         <img src="{{ asset('assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="...">
-        <span class="ms-3 font-weight-bold">Return-ly</span>
+        <span class="{{__('dashboard.spanlogoms')}} font-weight-bold">Return-ly</span>
     </a>
     @endif
     @if(auth()->user()->role_id === 2) <!-- role_id 2 represents corprator -->
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('corprator.dashboard') }}">
         <img src="{{ asset('assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="...">
-        <span class="ms-3 font-weight-bold">Return-ly</span>
+        <span class="{{__('dashboard.spanlogoms')}} font-weight-bold">Return-ly</span>
     </a>
     @endif
     @if(auth()->user()->role_id === 1) <!-- role_id 1 represents admin -->
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('admin.dashboard') }}">
         <img src="{{ asset('assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="...">
-        <span class="ms-3 font-weight-bold">Return-ly</span>
+        <span class="{{__('dashboard.spanlogoms')}} font-weight-bold">Return-ly</span>
     </a>
     @endif
 
@@ -27,11 +31,11 @@
     <ul class="navbar-nav">
       @if(auth()->user()->role_id === 1) <!-- role_id 1 represents admin -->
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin Services</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.admin-services')}}</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/dashboard') ? 'active' : '') }}" href="{{ url('admin/dashboard') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -46,109 +50,109 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Dashboard</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.dashboard')}}</span>
         </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/user-profile') ? 'active' : '') }} " href="{{ url('admin/user-profile') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-address-card ps-2 pe-2 text-center text-dark {{ (Request::is('admin/user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
-          <span class="nav-link-text ms-1">Profile</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.profile')}}</span>
       </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Users</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.users')}}</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/administrators') ? 'active' : '') }}" href="{{ url('admin/administrators') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-user-shield ps-2 pe-2 text-center text-dark {{ (Request::is('admin/administrators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Admin Users</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.admin-users')}}</span>
       </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/corporators') ? 'active' : '') }}" href="{{ url('admin/corporators') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/corporators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">corporators Users</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.corporators-users')}}</span>
       </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/assign-corprator-to-place') ? 'active' : '') }}" href="{{ url('admin/assign-corprator-to-place') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/assign-corprator-to-place') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Assign Corporators to place</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.ACTP')}}</span>
       </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/users') ? 'active' : '') }}" href="{{ url('admin/users') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users ps-2 pe-2 text-center text-dark {{ (Request::is('admin/users') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Users</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.users')}}</span>
       </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Configurations</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.configurations')}}</h6>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/cities') ? 'active' : '') }} " href="{{ url('admin/cities') }}">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('admin/cities') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Cities</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.cities')}}</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/places') ? 'active' : '') }} " href="{{ url('admin/places') }}">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('admin/places') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Places</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.places')}}</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/categories') ? 'active' : '') }} " href="{{ url('admin/categories') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('admin/categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
-          <span class="nav-link-text ms-1">Categories</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.categories')}}</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/sub_categories') ? 'active' : '') }} " href="{{ url('admin/sub_categories') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('admin/sub_categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
 
-          <span class="nav-link-text ms-1">Sub Categories</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.sub-categories')}}</span>
       </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Item requests</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.item-requests')}}</h6>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('admin/requestedItems') ? 'active' : '') }} " href="{{ url('admin/requestedItems') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('admin/requestedItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
 
-          <span class="nav-link-text ms-1">Requested Items</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.requested-items')}}</span>
       </a>
       </li>
       @endif
 
       @if(auth()->user()->role_id === 2) <!-- role_id 2 represents corprator -->
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Corprator Services</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.corprator-services')}}</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('corporators/dashboard') ? 'active' : '') }}" href="{{ url('corporators/dashboard') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -163,15 +167,15 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Dashboard</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.dashboard')}}</span>
         </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/user-profile') ? 'active' : '') }} " href="{{ url('corporators/user-profile') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-address-card ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
-          <span class="nav-link-text ms-1">Profile</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.profile')}}</span>
       </a>
       </li>
       {{-- <li class="nav-item mt-2">
@@ -179,10 +183,10 @@
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('admin/corprators') ? 'active' : '') }}" href="{{ url('admin/corprators') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-users-cog ps-2 pe-2 text-center text-dark {{ (Request::is('admin/corprators') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">corporators Users</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">corporators Users</span>
       </a>
       </li> 
       <li class="nav-item mt-2">
@@ -190,46 +194,74 @@
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/cities') ? 'active' : '') }} " href="{{ url('corporators/cities') }}">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/cities') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Cities</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Cities</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/places') ? 'active' : '') }} " href="{{ url('corporators/places') }}">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/places') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Places</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Places</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/categories') ? 'active' : '') }} " href="{{ url('corporators/categories') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
-          <span class="nav-link-text ms-1">Categories</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Categories</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/sub_categories') ? 'active' : '') }} " href="{{ url('corporators/sub_categories') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/sub_categories') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
 
-          <span class="nav-link-text ms-1">Sub Categories</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Sub Categories</span>
       </a>
       </li>--}}
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Item requests</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.items-base')}}</h6>
+      </li>
+      <li class="nav-item pb-2">
+        <a class="nav-link {{ (Request::is('corporators/storeItems') ? 'active' : '') }} " href="{{ url('corporators/storeItems') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
+            <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/storeItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+        </div>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.store-items')}}</span>
+      </a>
+      </li>
+      <li class="nav-item pb-2">
+        <a class="nav-link {{ (Request::is('corporators/stored-items') ? 'active' : '') }}" href="{{ url('corporators/stored-items') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
+              <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/stored-items') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+          </div>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.lost-items-list')}}</span>
+      </a>
+      </li>
+      {{-- <li class="nav-item pb-2">
+        <a class="nav-link {{ (Request::is('corporators/requestedItems') ? 'active' : '') }} " href="{{ url('corporators/requestedItems') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
+            <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/requestedItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+        </div>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Stored Items</span>
+      </a>
+      </li> --}}
+
+      <li class="nav-item mt-2">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.item-requests')}}</h6>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('corporators/requestedItems') ? 'active' : '') }} " href="{{ url('corporators/requestedItems') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem;" class="fas fa-lg fa-boxes ps-2 pe-2 text-center text-dark {{ (Request::is('corporators/requestedItems') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
         </div>
-          <span class="nav-link-text ms-1">Requested Items</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.requested-items')}}</span>
       </a>
       </li>
       @endif
@@ -237,11 +269,11 @@
 
       @if(auth()->user()->role_id === 3) <!-- role_id 3 represents user -->
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">User Services</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('dashboard.user-services')}}</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('dashboard') ? 'active' : '') }}" href="{{ url('dashboard') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -256,20 +288,20 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Find item</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.find-item')}}</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('item-requests') ? 'active' : '') }}" href="{{ url('item-requests') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('item-requests') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
-          <span class="nav-link-text ms-1">Find item Requests</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.find-item-requests')}}</span>
       </a>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-profile') ? 'active' : '') }} " href="{{ url('user-profile') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>customer-support</title>
                   <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -285,7 +317,7 @@
                   </g>
               </svg>
           </div>
-          <span class="nav-link-text ms-1">Profile</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">{{__('dashboard.profile')}}</span>
       </a>
       </li>
       @endif
@@ -294,7 +326,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('tables') ? 'active' : '') }}" href="{{ url('tables') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>office</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -309,12 +341,12 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Tables</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Tables</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('billing') ? 'active' : '') }}" href="{{ url('billing') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>credit-card</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -329,12 +361,12 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Billing</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Billing</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('virtual-reality') ? 'active' : '') }}" href="{{ url('virtual-reality') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>box-3d-50</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -350,12 +382,12 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Virtual Reality</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Virtual Reality</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('rtl') ? 'active' : '') }}" href="{{ url('rtl') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>settings</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -371,7 +403,7 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">RTL</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">RTL</span>
         </a>
       </li>
       <li class="nav-item mt-3">
@@ -379,7 +411,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('profile') ? 'active' : '') }}" href="{{ url('profile') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -395,12 +427,12 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Profile</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Profile</span>
         </a>
       </li> --}}
       {{-- <li class="nav-item">
         <a class="nav-link  " href="{{ url('static-sign-in') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -415,12 +447,12 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Sign In</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Sign In</span>
         </a>
       </li> --}}
       {{-- <li class="nav-item">
         <a class="nav-link  " href="{{ url('static-sign-up') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center {{__('dashboard.divme')}} d-flex align-items-center justify-content-center">
             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>spaceship</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -437,7 +469,7 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Sign Up</span>
+          <span class="nav-link-text {{__('dashboard.spanms')}}">Sign Up</span>
         </a>
       </li> --}}
       {{-- <li class="nav-link mb-0">

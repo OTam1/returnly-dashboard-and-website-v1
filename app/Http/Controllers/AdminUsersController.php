@@ -48,7 +48,7 @@ class AdminUsersController extends Controller
         User::create($userData);
 
         // Now you can return the administrators to your view or perform any other actions.
-        return redirect()->route('admin.administrators')->with('success', 'administrator user created successfully!');
+        return redirect()->route('admin.administrators')->with('success', __('dashboard.admin-user-created'));
     }
 
     public function users()
@@ -107,7 +107,7 @@ class AdminUsersController extends Controller
         Place::where('id', $request->place_id)->update(['user_id' => $corporate->id]);
 
         // Now you can return the administrators to your view or perform any other actions.
-        return redirect()->route('admin.corprators')->with('success', 'Corprator user created successfully!');
+        return redirect()->route('admin.corprators')->with('success', __('dashboard.corprator-user-created'));
     }
     public function getPlaces(Request $request)
     {
@@ -124,6 +124,6 @@ class AdminUsersController extends Controller
             'status' => !$administrators->status,
         ]);
 
-        return redirect()->back()->with('success', 'status updated successfully!');
+        return redirect()->back()->with('success', __('dashboard.status-updated'));
     }
 }

@@ -5,7 +5,11 @@
 <form>
     <label for="exampleFormControlInput1">{{__('dashboard.show-item-image')}}</label>
     <div class="centered-image-container" style="text-align: center;">
-        <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="30%">
+        @if ($item->image != null)
+        <img id="fullscreen-image" src="{{ asset('storage/' . $item->image) }}" alt="Image Title" width="8%">
+        @else
+        <img id="fullscreen-image" src="{{ asset('assets/img/logo-ct.png') }}" alt="Image Title" width="8%">
+        @endif
     </div>
       @if ($item->status == "Waiting for verification")
       <div class="progress-wrapper">

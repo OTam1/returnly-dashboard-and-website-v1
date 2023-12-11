@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-@if (\Request::is('rtl'))
+@if (session('locale') == 'ar' && Request::is('login'))
+@elseif (session('locale') == 'ar')
   <html dir="rtl" lang="ar">
-@else
+@elseif ((session('locale') == 'en'))
   <html lang="en" >
 @endif
 
@@ -31,7 +32,7 @@
   <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+<body class="g-sidenav-show  bg-gray-100 {{__('dashboard.dir')}} ">
   @auth
     @yield('auth')
   @endauth
@@ -177,6 +178,76 @@ $(document).ready(function () {
 
     </script>
   @endif
+  @if (\Request::is('corporators/storeItems'))
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>  
+$(document).ready(function () {
+  // Handle category selection change
+  $('#category_id').change(function () {
+      var categoryId = $(this).val();
+
+      // Make an AJAX request to fetch sub-categories
+      $.get('/corporators/get-sub-categories', { category_id: categoryId }, function (data) {
+          // Update the sub-category dropdown
+          var subCategorySelect = $('#sub_category_id');
+          subCategorySelect.empty(); // Clear existing options
+          subCategorySelect.append($('<option>').text('Select an option').attr('disabled', 'disabled').attr('selected', 'selected'));
+          $.each(data, function (key, value) {
+              subCategorySelect.append($('<option>').text(value).attr('value', key));
+          });
+      });
+  });
+
+  // Handle city selection change
+  $('#city_id').change(function () {
+      var cityId = $(this).val();
+
+      // Make an AJAX request to fetch places
+      $.get('/corporators/get-places', { city_id: cityId }, function (data) {
+          // Update the places dropdown
+          var placeSelect = $('#place_id');
+          placeSelect.empty(); // Clear existing options
+          placeSelect.append($('<option>').text('Select an option').attr('disabled', 'disabled').attr('selected', 'selected'));
+          $.each(data, function (key, value) {
+              placeSelect.append($('<option>').text(value).attr('value', key));
+          });
+      });
+  });
+
+  $(document).ready(function () {
+  // ... Your existing code ...
+
+  // Handle city selection change
+  $('#city_id').change(function () {
+      var selectedCity = $('#city_id option:selected').text();
+      $('#city').val(selectedCity);
+  });
+
+  // Handle place selection change
+  $('#place_id').change(function () {
+      var selectedPlace = $('#place_id option:selected').text();
+      $('#place').val(selectedPlace);
+  });
+
+  // Handle category selection change
+  $('#category_id').change(function () {
+      var selectedCategory = $('#category_id option:selected').text();
+      $('#category').val(selectedCategory);
+  });
+
+  // Handle sub-category selection change
+  $('#sub_category_id').change(function () {
+      var selectedSubCategory = $('#sub_category_id option:selected').text();
+      $('#sub_category').val(selectedSubCategory);
+  });
+
+  // ... Your existing code ...
+});
+
+});
+
+  </script>
+@endif
     {{-- <script>
         const fullscreenImage = document.getElementById('fullscreen-image');
         const exitFullscreenButton = document.getElementById('exit-fullscreen-button');

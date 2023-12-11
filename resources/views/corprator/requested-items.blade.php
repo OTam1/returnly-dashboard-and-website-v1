@@ -12,7 +12,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Items</h5>
+                            <h5 class="mb-0">{{__('dashboard.all-items')}}</h5>
                         </div>
                         {{-- <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a> --}}
                     </div>
@@ -23,56 +23,56 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        ID
+                                        {{ __('dashboard.id') }}
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Added By (Name)
+                                        {{ __('dashboard.added-by-name') }}
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Added By (Email)
+                                        {{ __('dashboard.added-by-email') }}
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Photo
+                                        {{ __('dashboard.photo') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Item
+                                        {{ __('dashboard.item') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Color
+                                        {{ __('dashboard.color') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Category
+                                        {{ __('dashboard.category') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Sub-Category
+                                        {{ __('dashboard.sub-category') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Address
+                                        {{ __('dashboard.address') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Item Lost Date/Time
+                                        {{ __('dashboard.lost-datetime') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Creation Date/Time
+                                        {{ __('dashboard.create-datetime') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Status
+                                        {{ __('dashboard.status') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Show
+                                        {{ __('dashboard.show') }}
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Action
+                                        {{ __('dashboard.action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -129,7 +129,7 @@
                                             <button type="button" class="btn bg-gradient-secondary dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-expanded="false"
                                                 style="margin-bottom: 0 !important;">
-                                                Actions
+                                                {{ __('dashboard.action') }}
                                             </button>
                                             <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownMenuButton">
                                                 {{-- <li>
@@ -141,32 +141,31 @@
                                                 <li>
                                                     <a class="dropdown-item border-radius-md"
                                                         href="{{ route('corprator.itemstatus', ['item' => $item->id, 'status' => 'Pending']) }}">
-                                                        <i class="fas fa-spinner text-secondary"></i> Pending
+                                                        <i class="fas fa-spinner text-secondary"></i> {{__('dashboard.pending')}}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item border-radius-md"
                                                         href="{{ route('corprator.itemstatus', ['item' => $item->id, 'status' => 'Waiting for verification']) }}">
-                                                        <i class="fas fa-check text-secondary"></i> Waiting for verification
+                                                        <i class="fas fa-check text-secondary"></i> {{__('dashboard.waiting-for-verification')}}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item border-radius-md"
                                                         href="{{ route('corprator.itemstatus', ['item' => $item->id, 'status' => 'Waiting for payment']) }}">
-                                                        <i class="fas fa-credit-card text-secondary"></i> Waiting for
-                                                        payment
+                                                        <i class="fas fa-credit-card text-secondary"></i> {{__('dashboard.waiting-for-payment')}}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item border-radius-md"
                                                         href="{{ route('corprator.itemstatus', ['item' => $item->id, 'status' => 'Cancelled']) }}">
-                                                        <i class="fas fa-ban text-secondary"></i> Cancelled
+                                                        <i class="fas fa-ban text-secondary"></i> {{__('dashboard.cancelled')}}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item border-radius-md"
                                                         href="{{ route('corprator.itemstatus', ['item' => $item->id, 'status' => 'Delivered']) }}">
-                                                        <i class="fas fa-truck-loading text-secondary"></i> Delivered
+                                                        <i class="fas fa-truck-loading text-secondary"></i> {{__('dashboard.delivered')}}
                                                     </a>
                                                 </li>
                                             </ul>

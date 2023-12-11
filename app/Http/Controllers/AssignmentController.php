@@ -38,7 +38,7 @@ public function assign(Request $request)
     $place->save();
 
     // Optionally, you can add a success message and redirect back to the form
-    return redirect()->route('admin.corprators')->with('success', 'User assigned to place successfully');
+    return redirect()->route('admin.corprators')->with('success', __('dashboard.user-assigned-success'));
 }
 
 }

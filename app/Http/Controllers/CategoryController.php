@@ -49,7 +49,7 @@ class CategoryController extends Controller
             'status' => !$category->status,
         ]);
 
-        return redirect()->route('categories.index')->with('success', 'Category status updated successfully!');
+        return redirect()->route('categories.index')->with('success', __('dashboard.category-created-success'));
     }
 
 
