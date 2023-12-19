@@ -60,21 +60,30 @@
                                 <a href="#home" class="scroll"><img src="../landing-page-assetes/img/Return-ly-logo2.png" alt="Logo Img"></a>
                             </div>
                         </div>
-                        <div class="col-6 p-0">
+                        <div class="col-7 p-0">
                         <ul id="primary" class="navbar-nav text-center">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">home</a>
+                                <a class="nav-link" href="#">{{__('landingpage.home')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#feature">about</a>
+                                <a class="nav-link" href="#feature">{{__('landingpage.about')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#testimonial">clients</a>
+                                <a class="nav-link" href="#testimonial">{{__('landingpage.clients')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#contact" class="btn btn-slider pink-btn rounded-pill">contact</a>
+                                <a href="#contact" class="nav-link">{{__('landingpage.contact')}}</a>
                             </li>
+                            @if (session('locale') == 'en')
+                            <li class="nav-item">
+                                <a href="{{ route('switch.language', 'ar') }}" class="btn btn-slider pink-btn rounded-pill"><i class="fa fa-globe" aria-hidden="true"></i> {{ __('Ar') }}</a>
+                            </li>
+                            @else
+                            <li class="nav-item">
+                                <a href="{{ route('switch.language', 'en') }}" class="btn btn-slider pink-btn rounded-pill"><i class="fa fa-globe" aria-hidden="true"></i> {{ __('En') }}</a>
+                            </li>
+                            @endif
                         </ul>
                         </div>
 
@@ -104,17 +113,26 @@
             <nav class="side-nav w-100">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#home">Home</a>
+                        <a class="nav-link scroll" href="#home">{{__('landingpage.home')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#feature">About</a>
+                        <a class="nav-link scroll" href="#feature">{{__('landingpage.about')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#testimonial">Clients</a>
+                        <a class="nav-link scroll" href="#testimonial">{{__('landingpage.clients')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="btn btn-slider white-btn rounded-pill">Contact</a>
+                        <a href="#contact" class="nav-link">{{__('landingpage.contact')}}</a>
                     </li>
+                    @if (session('locale') == 'en')
+                    <li class="nav-item">
+                        <a href="{{ route('switch.language', 'ar') }}" class="btn btn-slider pink-btn rounded-pill"><i class="fa fa-globe" aria-hidden="true"></i> {{ __('Ar') }}</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('switch.language', 'en') }}" class="btn btn-slider pink-btn rounded-pill"><i class="fa fa-globe" aria-hidden="true"></i> {{ __('En') }}</a>
+                    </li>
+                    @endif
                 </ul>
             </nav>
 
@@ -138,14 +156,14 @@
             <div class="col-12 col-md-6 height d-flex align-items-center text-left">
                 <div class="text d-flex align-items-center">
                     <div class="home-text text-black height1">
-                        <h6 class="sub-heading mb-2">Have a lost item?</h6>
-                        <h1 class="main-heading mb-0">It's not lost yet</h1>
-                        <h4 class="heading mb-3">We'll find it</h4>
+                        <h6 class="sub-heading mb-2">{{__('landingpage.have-lost-item')}}</h6>
+                        <h1 class="main-heading mb-0">{{__('landingpage.its-not-lost-yet')}}</h1>
+                        <h4 class="heading mb-3">{{__('landingpage.we-will-find-it')}}</h4>
                         @guest
-                        <a href="register" class="btn btn-slider pink-btn rounded-pill">CLAIM NOW</a>
+                        <a href="register" class="btn btn-slider pink-btn rounded-pill">{{__('landingpage.claim-now')}}</a>
                         @endguest
                         @auth
-                        <a href="dashboard" class="btn btn-slider pink-btn rounded-pill">CLAIM NOW</a>
+                        <a href="dashboard" class="btn btn-slider pink-btn rounded-pill">{{__('landingpage.claim-now')}}</a>
                         @endauth
                     </div>
                 </div>
@@ -184,14 +202,9 @@
                 <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 text-center">
                     <div class="text">
                         <div class="home-text text-black">
-                            <h1 class="main-heading mb-4">We are RETURN-LY</h1>
-                            <p class="sub-heading mb-4">We efficiently return your lost
-                                item through our advanced
-                                platform and partners’ network. It
-                                starts with submitting your claim
-                                all the way until you receive your
-                                item back.</p>
-                            <a href="#" class="btn btn-slider pink-btn rounded-pill">Learn More</a>
+                            <h1 class="main-heading mb-4">{{__('landingpage.we-are-returnly')}}</h1>
+                            <p class="sub-heading mb-4">{{__('landingpage.we-efficiently')}}</p>
+                            <a href="#" class="btn btn-slider pink-btn rounded-pill">{{__('landingpage.learn-more')}}</a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +217,7 @@
                             <i class="far fas fa-microchip"></i>
                         </div>
                         <div class="card-body">
-                            <p class="card-text sub-heading text-black">Advanced Technology</p>
+                            <p class="card-text sub-heading text-black">{{__('landingpage.advanced-technology')}}</p>
                         </div>
                     </div>
                 </div>
@@ -215,7 +228,7 @@
                             <i class="far fas fa-project-diagram"></i>
                         </div>
                         <div class="card-body">
-                            <p class="card-text sub-heading text-black">Large Partner's Network</p>
+                            <p class="card-text sub-heading text-black">{{__('landingpage.large-partners-network')}}</p>
                         </div>
                     </div>
 
@@ -227,7 +240,7 @@
                             <i class="far fas fa-shipping-fast"></i>
                         </div>
                         <div class="card-body">
-                            <p class="card-text sub-heading text-black">Express Delivery</p>
+                            <p class="card-text sub-heading text-black">{{__('landingpage.express-delivery')}}</p>
                         </div>
                     </div>
 
@@ -238,7 +251,7 @@
                             <i class="far fas fa-shield-alt"></i>
                         </div>
                         <div class="card-body">
-                            <p class="card-text sub-heading text-black">Safe &<br> Secure</p>
+                            <p class="card-text sub-heading text-black">{{__('landingpage.safe-and')}}<br>{{__('landingpage.secure')}}</p>
                         </div>
                     </div>
 
@@ -250,23 +263,23 @@
 <section id="stats" class="stats">
         <div class="container">
             <div class="row m-0">
-                    <div class="col-lg-6 offset-lg-4 col-md-10 offset-md-0 col-sm-12 text-left p-0">
+                    <div class="col-lg-6 {{__('landingpage.join-company-title-class')}} col-md-10 offset-md-0 col-sm-12 p-0">
                         <div class="stats-text">
                             <div class="home-text text-black">
-                                <h1 class="sub-heading">Let us show you some stats</h1>
-                                <h1 class="main-heading mt-3 mb-4">Our Happy founds stats.</h1>
+                                <h1 class="sub-heading">{{__('landingpage.let-us-show-you-some-stats')}}</h1>
+                                <h1 class="main-heading mt-3 mb-4">{{__('landingpage.our-happy-founds')}}</h1>
                                 <!--<p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
                                 <!--    aliqua</p>-->
                             </div>
                         </div>
                     </div>
-                     <div class="col-2">
+                     {{-- <div class="col-2">
                          <div class="plant-img">
                              <div class="plant">
-                                {{-- <img src="../landing-page-assetes/img/wallet.png" alt="img"> --}}
+                                <img src="../landing-page-assetes/img/wallet.png" alt="img">
                              </div>
                          </div>
-                     </div>
+                     </div> --}}
                  </div>
 
             <div class="row mt-40">
@@ -279,7 +292,7 @@
                                     </div>
                                     <div class="stats-box-text ml-4">
                                         <h1 class="numbering">10740+</h1>
-                                        <p class="sub-heading">Retuned items</p>
+                                        <p class="sub-heading">{{__('landingpage.retuned-items')}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +304,7 @@
                                 </div>
                                 <div class="stats-box-text ml-4">
                                     <h1 class="numbering">500+</h1>
-                                    <p class="sub-heading">Partners</p>
+                                    <p class="sub-heading">{{__('landingpage.partners')}}</p>
                                 </div>
                             </div>
                         </div>
@@ -303,7 +316,7 @@
                                 </div>
                                 <div class="stats-box-text ml-4">
                                     <h1 class="numbering">200+</h1>
-                                    <p class="sub-heading">Cities & locations</p>
+                                    <p class="sub-heading">{{__('landingpage.cities-and-locations')}}</p>
                                 </div>
                             </div>
                         </div>
@@ -323,9 +336,9 @@
 
     <div class="col-lg-6 offset-lg-4 col-md-6 offset-md-4 col-sm-12 text-left p-0">
         <div class="stats-text pl-3 pr-3 pl-md-5">
-            <div class="home-text text-black">
-                <h1 class="sub-heading">Let us make you happy with</h1>
-                <h1 class="main-heading mt-3 mb-4"><span class="text-yellow">Join our</span> Partner's Network</h1>
+            <div style="{{__('landingpage.join-company-css')}}" class="home-text text-black">
+                <h1 class="sub-heading">{{__('landingpage.let-us-make-you-happy-with')}}</h1>
+                <h1 class="main-heading mt-3 mb-4"><span class="text-yellow">{{__('landingpage.join-our')}}</span> {{__('landingpage.partners-newtork')}}</h1>
                 {{-- <p class="sub-heading mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut
                     aliq. Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> --}}
                     <div class="joinus-form-suc"></div>
@@ -339,31 +352,31 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Company name*" required id="company_name" name="companyName">
+                                    <input class="form-control" type="text" placeholder="{{__('landingpage.company-name')}}" required id="company_name" name="companyName">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Email Address*" required id="company_email" name="companyEmail">
+                                    <input class="form-control" type="email" placeholder="{{__('landingpage.email')}}" required id="company_email" name="companyEmail">
                                 </div>
                                 <div class="form-group ">
-                                    <input class="form-control" type="phone" placeholder="Phone*" required id="company_phone" name="companyPhone">
+                                    <input class="form-control" type="phone" placeholder="{{__('landingpage.phone')}}" required id="company_phone" name="companyPhone">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group ">
-                                    <input class="form-control" type="text" placeholder="Industry*" required id="company_industry" name="companyIndustry">
+                                    <input class="form-control" type="text" placeholder="{{__('landingpage.industry')}}" required id="company_industry" name="companyIndustry">
                                 </div>
                                 <div class="form-group ">
-                                    <input class="form-control" type="text" placeholder="Country*" required id="company_country" name="companyCountry">
+                                    <input class="form-control" type="text" placeholder="{{__('landingpage.country')}}" required id="company_country" name="companyCountry">
                                 </div>
                                 <div class="form-group ">
-                                    <input class="form-control" type="text" placeholder="City*" required id="company_city" name="companyCity">
+                                    <input class="form-control" type="text" placeholder="{{__('landingpage.city')}}" required id="company_city" name="companyCity">
                                 </div>
                             </div>
                         </div>
                         </div>
                         <button type="submit" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn">
                             <i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>
-                            <b>Send</b>
+                            <b>{{__('landingpage.send')}}</b>
                         </button>
                     </form>
                                     {{-- <a href="#" class="btn btn-main pink-btn rounded-pill mt-3">Lorem ipsum</a> --}}
@@ -382,7 +395,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-6">
-                <h1 class="main-heading text-center text-black">Wonderful Words</h1>
+                <h1 class="main-heading text-center text-black">{{__('landingpage.wonderful-words')}}</h1>
                 <div id="testimonial-carousal" class="owl-carousel owl-theme testimonial-owl pt-5 pb-5 text-center">
 
                     <div class="item">
@@ -391,11 +404,7 @@
                         </div>
 
                         <div class="description pl-0 pr-0 pl-md-4 pr-md-4 mb-4">
-                            <p class="text-black sub-heading">The best lost and found website that I
-                                recently used, I lost my phone at
-                                Riyadh Park Mall, but thanks to them,
-                                it was returned to me! they even
-                                shipped it all the way to Jeddah.</p>
+                            <p class="text-black sub-heading">{{__('landingpage.1st-comment')}}</p>
                         </div>
                         <div class="testimonial-tittle mt-3 mb-3">
                             <h3 class="mb-0">Sara Williams</h3>
@@ -408,11 +417,7 @@
                         </div>
 
                         <div class="description pl-0 pr-0 pl-md-4 pr-md-4 mb-4">
-                            <p class="text-black sub-heading">Their service is absolutely amazing
-                                and i felt really secure I actually
-                                managed to lose my phone in Four
-                                Seasons hotel and guess what? They
-                                found it and brought it back to me</p>
+                            <p class="text-black sub-heading">{{__('landingpage.2nd-comment')}}</p>
                         </div>
                         <div class="testimonial-tittle mt-3 mb-3">
                             <h3 class="mb-0">Sara Williams</h3>
@@ -473,11 +478,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="main-heading text-black">Interested?<br>Let's Get In Touch</h1>
+                <h1 style="{{__('landingpage.contactus-title-css')}}" class="main-heading text-black">{{__('landingpage.intrested')}}<br>{{__('landingpage.lets-get-in-touch')}}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-7">
+            <div class="col-12 col-md-7" style="{{__('landingpage.contactus-form-css')}}">
                 <div class="contact-form-suc"></div>
                 <form class="contact-form" id="contact-form">
                     @csrf
@@ -487,24 +492,24 @@
                     <div class="row">
                         <div class="col-12 col-md-5">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Your Name" required id="candidate_name" name="userName">
+                                <input class="form-control" type="text" placeholder="{{__('landingpage.your-name')}}" required id="candidate_name" name="userName">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email Address*" required id="user_email" name="userEmail">
+                                <input class="form-control" type="email" placeholder="{{__('landingpage.email')}}" required id="user_email" name="userEmail">
                             </div>
                             <div class="form-group ">
-                                <input class="form-control" type="text" placeholder="Subject" id="user_subject" name="userSubject">
+                                <input class="form-control" type="text" placeholder="{{__('landingpage.subject')}}" id="user_subject" name="userSubject">
                             </div>
                         </div>
                         <div class="col-12 col-md-7">
                             <div class="form-group ">
-                                <textarea class="form-control" placeholder="Your Message" required rows="7" id="user_message" name="userMessage"></textarea>
+                                <textarea class="form-control" placeholder="{{__('landingpage.your-msg')}}" required rows="7" id="user_message" name="userMessage"></textarea>
                             </div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-slider pink-btn rounded-pill w-100 contact_btn" id="submit_btn">
                         <i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>
-                        <b>Send Message</b>
+                        <b>{{__('landingpage.send-msg')}}</b>
                     </button>
                 </form>
             </div>
