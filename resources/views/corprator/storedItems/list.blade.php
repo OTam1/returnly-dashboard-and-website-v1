@@ -53,6 +53,9 @@
                                         {{ __('dashboard.lost-datetime') }}
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        {{ __('dashboard.weight') }}
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         {{ __('dashboard.create-datetime') }}
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -100,6 +103,9 @@
                                         </td>
                                         <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{$item->date}} {{$item->time}}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{$item->weight}}</p>
                                         </td>
                                         <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>

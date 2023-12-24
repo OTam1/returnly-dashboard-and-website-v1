@@ -63,6 +63,7 @@ class ItemController extends Controller
             'time' => 'required',
             'description' => 'nullable|string',
             'status' => 'required',
+            'weight' => 'required',
             // 'image' => 'required',
         ]);
     

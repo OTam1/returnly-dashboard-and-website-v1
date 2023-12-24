@@ -47,6 +47,9 @@ return [
     'image' => 'الصورة',
     'submit' => 'إرسال',
     'select-an-option' => 'اختر',
+    'weight'=> 'الوزن (قرام)',
+    'weight-placeholder'=> '120',
+
 
     /* Lost Items List Page */
     'all-items' => 'جميع العناصر المفقودة',

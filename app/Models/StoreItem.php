@@ -26,6 +26,7 @@ class StoreItem extends Model
         'status',
         'image',
         'qr_code',
+        'weight',
     ];
     public function user()
     {

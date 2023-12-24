@@ -15,7 +15,7 @@ return [
     'its-not-lost-yet' => 'لم يفقد بعد',
     'we-will-find-it' => 'سنجده',
     'claim-now' => 'المطالبة الآن',
-    'we-are-returnly' => 'Return-ly نحن',
+    'we-are-returnly' => 'RETURN-LY نحن',
     'we-efficiently' => 'نقوم بإعادة العناصر المفقودة بكفاءة من خلال منصتنا المتقدمة وشبكة شركائنا. يبدأ الأمر بتقديم مطالبتك حتى تستلم عنصرك مرة أخرى.',
     'learn-more' => 'اعرف المزيد',
     'advanced-technology' => 'تكنولوجيا متقدمة',

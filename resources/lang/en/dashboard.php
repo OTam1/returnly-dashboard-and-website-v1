@@ -47,6 +47,9 @@ return [
     'image'=> 'Image',
     'submit'=> 'Submit',
     'select-an-option'=> 'Select an option',
+    'weight'=> 'Weight (Grams)',
+    'weight-placeholder'=> '120',
+
 
     /* Lost Items List Page */
     'all-items'=> 'All Items',

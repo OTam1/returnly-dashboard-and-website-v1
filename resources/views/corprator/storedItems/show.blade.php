@@ -149,6 +149,14 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">{{__('dashboard.weight')}}</label>
+          <input name="weight" type="text" class="form-control" id="exampleFormControlInput1" placeholder="weight" value="{{$item->weight}}" disabled>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">{{__('dashboard.description')}}</label>
       <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" spellcheck="false" disabled>{{$item->description}}</textarea>
