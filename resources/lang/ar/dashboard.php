@@ -47,7 +47,7 @@ return [
     'image' => 'الصورة',
     'submit' => 'إرسال',
     'select-an-option' => 'اختر',
-    'weight'=> 'الوزن (قرام)',
+    'weight'=> 'الوزن (كيلو قرام)',
     'weight-placeholder'=> '120',
 
 

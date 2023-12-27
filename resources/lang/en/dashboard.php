@@ -47,7 +47,7 @@ return [
     'image'=> 'Image',
     'submit'=> 'Submit',
     'select-an-option'=> 'Select an option',
-    'weight'=> 'Weight (Grams)',
+    'weight'=> 'Weight (KG)',
     'weight-placeholder'=> '120',
 
 
